@@ -4,12 +4,9 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./layout-components/header/Header";
 import Sidebar from "./layout-components/sidebar/Sidebar";
 import Footer from "./layout-components/footer/Footer";
-import { lazy } from "react";
-import ThemeRoutes from "../routes/Router";
-import Spinner from "./../views/spinner/Spinner";
 
-// const Feed = lazy(() => import("../views/feed/Feed"));
-import Feed from "../views/feed/Feed";
+import ThemeRoutes from "../routes/Router";
+import Spinner from "../views/spinner/Spinner";
 
 const FullLayout = (props) => {
   const user = useSelector((state) => state.user);
@@ -42,15 +39,21 @@ const FullLayout = (props) => {
       data-header-position="fixed"
       data-boxed-layout="full"
     >
+      {/*--------------------------------------------------------------------------------*/}
+      {/* Header                                                                         */}
+      {/*--------------------------------------------------------------------------------*/}
       <Header />
-
+      {/*--------------------------------------------------------------------------------*/}
+      {/* Sidebar                                                                        */}
+      {/*--------------------------------------------------------------------------------*/}
       {user.userId && <Sidebar {...props} routes={ThemeRoutes} />}
-
+      {/*--------------------------------------------------------------------------------*/}
+      {/* Page Main-Content                                                              */}
+      {/*--------------------------------------------------------------------------------*/}
       <div className="page-wrapper d-block">
         <div className="page-content container-fluid">
           <Suspense fallback={<Spinner />}>
             <Switch>
-             
               {user.userId &&
                 ThemeRoutes.map((prop, key) => {
                   if (prop.navlabel) {
