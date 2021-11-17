@@ -14,6 +14,7 @@
   "author": "Wrappixel",
   "license": "ISC",
   "devDependencies": {
+    "@types/js-cookie": "^3.0.1",
     "axios-mock-adapter": "^1.18.1",
     "lodash": "^4.17.19",
     "mixin-deep": "^2.0.1",
@@ -32,6 +33,7 @@
     "immutability-helper": "2.7.1",
     "joi": "^13.7.0",
     "joi-validation-strategy": "^0.3.3",
+    "js-cookie": "^3.0.1",
     "minimist": "^1.2.5",
     "moment": "^2.29.1",
     "namor": "^1.1.3",

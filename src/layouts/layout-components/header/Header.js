@@ -98,7 +98,7 @@ const Header = () => {
           navbar
           data-navbarbg="skin4"
         >
-         <Nav className="float-left" navbar>
+          <Nav className="float-left" navbar>
             <NavItem>
               <NavLink
                 href="#"
@@ -108,9 +108,8 @@ const Header = () => {
                 <i className="mdi mdi-menu" />
               </NavLink>
             </NavItem>
-            </Nav>
+          </Nav>
           <Nav className="ml-auto float-right" navbar>
-           
             <UncontrolledDropdown nav inNavbar>
               {session && (
                 <div>
@@ -140,7 +139,7 @@ const Header = () => {
                         <p className=" mb-0">varun@gmail.com</p>
                       </div>
                     </div>
-                    
+
                     <DropdownItem divider />
                     <Button
                       color="danger"
@@ -152,14 +151,15 @@ const Header = () => {
                 </div>
               )}
               {!session && (
-                <Button color="success" className="btn-rounded ml-3 mb-2 mt-2">
+                <Button
+                  color="success"
+                  className="btn-rounded ml-3 mb-2 mt-2"
+                  href="/authentication/login"
+                >
                   Нэвтрэх
                 </Button>
               )}
             </UncontrolledDropdown>
-            {/*--------------------------------------------------------------------------------*/}
-            {/* End Profile Dropdown                                                           */}
-            {/*--------------------------------------------------------------------------------*/}
           </Nav>
         </Collapse>
       </Navbar>

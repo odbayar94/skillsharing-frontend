@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   InputGroup,
   InputGroupAddon,
@@ -12,7 +13,7 @@ import {
   Button,
 } from "reactstrap";
 import validators from "./Validators";
-
+import {loginUser} from "../../redux/user/Action"
 import img2 from "../../assets/images/big/auth-bg.jpg";
 
 const sidebarBackground = {
@@ -21,7 +22,11 @@ const sidebarBackground = {
   backgroundPosition: "center center",
 };
 
-const Login2 = (props) => {
+const Login = (props) => {
+  const user = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -83,7 +88,7 @@ const Login2 = (props) => {
       const email1 = email;
       const password1 = password;
 
-      console.log("email1 " + email1 + password1);
+      dispatch(loginUser(email1, password1));
     }
     
     event.preventDefault();
@@ -94,9 +99,7 @@ const Login2 = (props) => {
       className="auth-wrapper  align-items-center d-flex"
       style={sidebarBackground}
     >
-      {/*--------------------------------------------------------------------------------*/}
-      {/*Login2 Cards*/}
-      {/*--------------------------------------------------------------------------------*/}
+      
       <div className="container">
         <div>
           <Row className="no-gutters justify-content-center">
@@ -203,4 +206,4 @@ const Login2 = (props) => {
   );
 };
 
-export default Login2;
+export default Login;

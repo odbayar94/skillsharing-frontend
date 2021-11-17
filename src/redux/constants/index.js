@@ -57,3 +57,14 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const DELETE_NOTE = "DELETE_NOTE";
 export const ADD_NOTE = "ADD_NOTE";
 export const FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS";
+
+
+//USER Constants
+export const SIGN_IN_START ="SIGN_IN_START";
+export const SIGN_IN_FAILURE = "SIGN_IN_FAILURE";
+export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS";
+export const LOGOUT = "LOGOUT";
+
+
+//System constant
+export const REST_API_URL = "http://localhost:5001/api/v1";
