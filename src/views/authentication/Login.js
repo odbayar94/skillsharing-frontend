@@ -97,7 +97,7 @@ const Login = (props) => {
 
   return (
     <>
-      { user.token && <Redirect to="/" />}
+      { user.userId && <Redirect to="/" />}
       <div
         className="auth-wrapper  align-items-center d-flex"
         style={sidebarBackground}

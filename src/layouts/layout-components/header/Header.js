@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../../redux/user/Action";
 import {
   Nav,
   NavItem,
@@ -13,7 +14,6 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
-import * as data from "./Data";
 
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
@@ -26,6 +26,7 @@ import profilephoto from "../../../assets/images/users/1.jpg";
 
 const Header = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,6 +48,9 @@ const Header = () => {
     }
     
   };
+  const systemLogOut = ()=>{
+    dispatch(logOut());
+  }
 
   return (
     <header className="topbar navbarbg" data-navbarbg="skin4">
@@ -136,6 +140,7 @@ const Header = () => {
                     <Button
                       color="danger"
                       className="btn-rounded ml-3 mb-2 mt-2"
+                      onClick={systemLogOut}
                     >
                       <i className="fa fa-power-off mr-1 ml-1" /> Logout
                     </Button>

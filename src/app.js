@@ -3,7 +3,7 @@ import indexRoutes from "./routes/";
 import { Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "./redux/Store";
-import { History } from "./jwt/_helpers";
+import { History } from "./helpers/History";
 import { PrivateRoute } from "./routes/PrivateRoutes";
 import BlankLayout from "./layouts/BlankLayout";
 
