@@ -1,4 +1,3 @@
-import { Dispatch } from "redux";
 import axios from "axios";
 import Cookies from "js-cookie";
 
@@ -11,11 +10,10 @@ import {
   LOGOUT,
 } from "../constants";
 
-export const loginUser = (username, password) => async (dispatch) => {
+export const loginUser = (email, password) => async (dispatch) => {
   dispatch(loginUserStart());
-
   const data = {
-    username,
+    email,
     password,
   };
 
@@ -23,9 +21,8 @@ export const loginUser = (username, password) => async (dispatch) => {
     .post(REST_API_URL + "/users/login", data)
     .then((result) => {
       Cookies.set("token", result.data.user.token);
-
       dispatch(
-        loginUserSuccess(result.data.user.token, result.data.user.userId)
+        loginUserSuccess(result.data.user.token, result.data.user.id)
       );
     })
     .catch((err) => {

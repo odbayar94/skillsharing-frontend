@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import {
   InputGroup,
   InputGroupAddon,
@@ -95,114 +96,116 @@ const Login = (props) => {
   };
 
   return (
-    <div
-      className="auth-wrapper  align-items-center d-flex"
-      style={sidebarBackground}
-    >
-      
-      <div className="container">
-        <div>
-          <Row className="no-gutters justify-content-center">
-            <Col md="6" lg="4" className="bg-dark text-white">
-              <div className="p-4">
-                <h2 className="display-5">
-                  Hi,
-                  <br /> <span className="text-cyan font-bold">Dude</span>
-                </h2>
-                <p className="op-5 mt-4">
-                  This is the Firebase login section. Donec non pharetra ligula,
-                  sit amet laoreet arcu.Integer. you can use below username
-                  password for login
-                </p>
-                <p className="mt-5">Username: demo@demo.com</p>
-                <p className="align-items-end">Password: demo123</p>
-              </div>
-            </Col>
-            <Col md="6" lg="4" className="bg-white">
-              <div className="p-4">
-                <h3 className="font-medium mb-3">Sign In to Admin</h3>
-                <Form className="mt-3" id="loginform" action="/dashbaord">
-                  <Label for="email" className="font-medium">
-                    Email
-                  </Label>
-                  <InputGroup className="mb-2" size="lg">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ti-user"></i>
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={email}
-                      onChange={(e) => {
-                        setEmail(e.target.value);
-                        onInputChange(e);
-                      }}
-                      placeholder="Email"
-                    />
-                  </InputGroup>
-                  {showErrors("email")}
-                  <Label for="password" className="mt-3 font-medium">
-                    Password
-                  </Label>
-                  <InputGroup className="mb-3" size="lg">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ti-pencil"></i>
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      type="password"
-                      id="password"
-                      name="password"
-                      value={password}
-                      onChange={(e) => {
-                        setPassword(e.target.value);
-                        onInputChange(e);
-                      }}
-                      placeholder="Password"
-                    />
-                  </InputGroup>
-                  {showErrors("password")}
-                  <div className="d-flex no-block align-items-center mb-4 mt-4">
-                    <CustomInput
-                      type="checkbox"
-                      id="exampleCustomCheckbox"
-                      label="Remember Me"
-                    />
-                  </div>
-                  <Row className="mb-3">
-                    <Col xs="12">
-                      <Button
-                        color="primary"
-                        onClick={(event) => doLogin(event)}
-                        className={`${validForm() ? "" : "disabled"}`}
-                        size="lg"
-                        type="submit"
-                        block
+    <>
+      { user.token && <Redirect to="/" />}
+      <div
+        className="auth-wrapper  align-items-center d-flex"
+        style={sidebarBackground}
+      >
+        <div className="container">
+          <div>
+            <Row className="no-gutters justify-content-center">
+              <Col md="6" lg="4" className="bg-dark text-white">
+                <div className="p-4">
+                  <h2 className="display-5">
+                    Hi,
+                    <br /> <span className="text-cyan font-bold">Dude</span>
+                  </h2>
+                  <p className="op-5 mt-4">
+                    This is the Firebase login section. Donec non pharetra
+                    ligula, sit amet laoreet arcu.Integer. you can use below
+                    username password for login
+                  </p>
+                  <p className="mt-5">Username: demo@demo.com</p>
+                  <p className="align-items-end">Password: demo123</p>
+                </div>
+              </Col>
+              <Col md="6" lg="4" className="bg-white">
+                <div className="p-4">
+                  <h3 className="font-medium mb-3">Sign In to Admin</h3>
+                  <Form className="mt-3" id="loginform" action="/dashbaord">
+                    <Label for="email" className="font-medium">
+                      Email
+                    </Label>
+                    <InputGroup className="mb-2" size="lg">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="ti-user"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          onInputChange(e);
+                        }}
+                        placeholder="Email"
+                      />
+                    </InputGroup>
+                    {showErrors("email")}
+                    <Label for="password" className="mt-3 font-medium">
+                      Password
+                    </Label>
+                    <InputGroup className="mb-3" size="lg">
+                      <InputGroupAddon addonType="prepend">
+                        <InputGroupText>
+                          <i className="ti-pencil"></i>
+                        </InputGroupText>
+                      </InputGroupAddon>
+                      <Input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                          onInputChange(e);
+                        }}
+                        placeholder="Password"
+                      />
+                    </InputGroup>
+                    {showErrors("password")}
+                    <div className="d-flex no-block align-items-center mb-4 mt-4">
+                      <CustomInput
+                        type="checkbox"
+                        id="exampleCustomCheckbox"
+                        label="Remember Me"
+                      />
+                    </div>
+                    <Row className="mb-3">
+                      <Col xs="12">
+                        <Button
+                          color="primary"
+                          onClick={(event) => doLogin(event)}
+                          className={`${validForm() ? "" : "disabled"}`}
+                          size="lg"
+                          type="submit"
+                          block
+                        >
+                          Log In
+                        </Button>
+                      </Col>
+                    </Row>
+                    <div className="text-center">
+                      Don&apos;t have an account?{" "}
+                      <a
+                        href="/authentication/register"
+                        className="text-info ml-1"
                       >
-                        Log In
-                      </Button>
-                    </Col>
-                  </Row>
-                  <div className="text-center">
-                    Don&apos;t have an account?{" "}
-                    <a
-                      href="/authentication/register"
-                      className="text-info ml-1"
-                    >
-                      <b>Sign Up</b>
-                    </a>
-                  </div>
-                </Form>
-              </div>
-            </Col>
-          </Row>
+                        <b>Sign Up</b>
+                      </a>
+                    </div>
+                  </Form>
+                </div>
+              </Col>
+            </Row>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

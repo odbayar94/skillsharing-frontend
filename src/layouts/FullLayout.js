@@ -9,7 +9,7 @@ import ThemeRoutes from "../routes/Router";
 import Spinner from "./../views/spinner/Spinner";
 
 const FullLayout = (props) => {
-  const session = false;
+  const user = useSelector((state) => state.user);
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const FullLayout = (props) => {
       {/*--------------------------------------------------------------------------------*/}
       {/* Sidebar                                                                        */}
       {/*--------------------------------------------------------------------------------*/}
-      {session && <Sidebar {...props} routes={ThemeRoutes} />}
+      {user.userId && <Sidebar {...props} routes={ThemeRoutes} />}
       {/*--------------------------------------------------------------------------------*/}
       {/* Page Main-Content                                                              */}
       {/*--------------------------------------------------------------------------------*/}
@@ -54,7 +54,7 @@ const FullLayout = (props) => {
         <div className="page-content container-fluid">
           <Suspense fallback={<Spinner />}>
             <Switch>
-              {session &&
+              {user.userId &&
                 ThemeRoutes.map((prop, key) => {
                   if (prop.navlabel) {
                     return null;

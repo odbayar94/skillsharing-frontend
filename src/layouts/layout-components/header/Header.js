@@ -12,15 +12,6 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  UncontrolledCarousel,
-  Progress,
-  ListGroup,
-  ListGroupItem,
-  Row,
-  Col,
-  Form,
-  FormGroup,
-  Input,
 } from "reactstrap";
 import * as data from "./Data";
 
@@ -34,7 +25,8 @@ import logolighttext from "../../../assets/images/logo-light-text.png";
 import profilephoto from "../../../assets/images/users/1.jpg";
 
 const Header = () => {
-  const session = false;
+  const user = useSelector((state) => state.user);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -111,7 +103,7 @@ const Header = () => {
           </Nav>
           <Nav className="ml-auto float-right" navbar>
             <UncontrolledDropdown nav inNavbar>
-              {session && (
+              {user.userId ? (
                 <div>
                   <DropdownToggle nav caret className="pro-pic">
                     <img
@@ -149,8 +141,7 @@ const Header = () => {
                     </Button>
                   </DropdownMenu>
                 </div>
-              )}
-              {!session && (
+              ) : (
                 <Button
                   color="success"
                   className="btn-rounded ml-3 mb-2 mt-2"
