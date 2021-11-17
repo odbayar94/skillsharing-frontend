@@ -1,9 +1,7 @@
 import { lazy } from "react";
 // import AuthRoutes from "./AuthRoutes";
-/*--------------------------------------------------------------------------------*/
-/*                                  Application                                    */
-/*--------------------------------------------------------------------------------*/
-const FirstDashboard = lazy(() => import("../views/dashboards/Dashboard1"));
+
+const FirstDashboard = lazy(() => import("../views/dashboards/Dashboard"));
 const Email = lazy(() => import("../views/email/Email"));
 const Notes = lazy(() => import("../views/notes/Notes"));
 
@@ -13,7 +11,7 @@ var ThemeRoutes = [
   
 
   {
-    path: "/dashboards/dashboard1",
+    path: "/dashboard",
     name: "Dashboard",
     mini: "B",
     icon: "mdi mdi-adjust",

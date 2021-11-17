@@ -36,8 +36,6 @@ import profilephoto from "../../../assets/images/users/1.jpg";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const settings = useSelector((state) => state.settings);
-
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -48,44 +46,13 @@ const Header = () => {
 
   const sidebarHandler = () => {
     let element = document.getElementById("main-wrapper");
-    switch (settings.activeSidebarType) {
-      case "full":
-      case "iconbar":
-        element.classList.toggle("mini-sidebar");
-        if (element.classList.contains("mini-sidebar")) {
-          element.setAttribute("data-sidebartype", "mini-sidebar");
-        } else {
-          element.setAttribute("data-sidebartype", settings.activeSidebarType);
-        }
-        break;
-
-      case "overlay":
-      case "mini-sidebar":
-        element.classList.toggle("full");
-        if (element.classList.contains("full")) {
-          element.setAttribute("data-sidebartype", "full");
-        } else {
-          element.setAttribute("data-sidebartype", settings.activeSidebarType);
-        }
-        break;
-      default:
-    }
+    
   };
 
   return (
-    <header className="topbar navbarbg" data-navbarbg={settings.activeNavbarBg}>
-      <Navbar
-        className={
-          "top-navbar " +
-          (settings.activeNavbarBg === "skin6" ? "navbar-light" : "navbar-dark")
-        }
-        expand="md"
-      >
-        <div
-          className="navbar-header"
-          id="logobg"
-          data-logobg={settings.activeLogoBg}
-        >
+    <header className="topbar navbarbg" data-navbarbg="skin4">
+      <Navbar className="top-navbar navbar-light" expand="md">
+        <div className="navbar-header" id="logobg" data-logobg="skin4">
           {/*--------------------------------------------------------------------------------*/}
           {/* Mobile View Toggler  [visible only after 768px screen]                         */}
           {/*--------------------------------------------------------------------------------*/}
@@ -122,7 +89,7 @@ const Header = () => {
           className="navbarbg"
           isOpen={isOpen}
           navbar
-          data-navbarbg={settings.activeNavbarBg}
+          data-navbarbg="skin4"
         >
           <Nav className="float-left" navbar>
             <NavItem>
@@ -138,7 +105,6 @@ const Header = () => {
             {/* Start Mega Menu Dropdown                                                       */}
             {/*--------------------------------------------------------------------------------*/}
             <UncontrolledDropdown nav inNavbar className="mega-dropdown">
-          
               <DropdownMenu>
                 <Row>
                   {/*--------------------------------------------------------------------------------*/}
@@ -296,7 +262,6 @@ const Header = () => {
             {/* Start Create New Dropdown                                                      */}
             {/*--------------------------------------------------------------------------------*/}
             <UncontrolledDropdown nav inNavbar>
-              
               <DropdownMenu>
                 <DropdownItem>Option 1</DropdownItem>
                 <DropdownItem>Option 2</DropdownItem>
@@ -313,7 +278,6 @@ const Header = () => {
             {/* Start Notifications Dropdown                                                   */}
             {/*--------------------------------------------------------------------------------*/}
             <UncontrolledDropdown nav inNavbar>
-             
               <DropdownMenu right className="mailbox">
                 <span className="with-arrow">
                   <span className="bg-primary" />
@@ -360,7 +324,6 @@ const Header = () => {
             {/* Start Messages Dropdown                                                        */}
             {/*--------------------------------------------------------------------------------*/}
             <UncontrolledDropdown nav inNavbar>
-             
               <DropdownMenu right className="mailbox">
                 <span className="with-arrow">
                   <span className="bg-danger" />

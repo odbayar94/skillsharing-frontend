@@ -24,10 +24,7 @@ const Sidebar = (props) => {
   const [cstate, csetState] = useState({
     extrapages: activeRoute("/sample-pages/extra-pages") !== "" ? true : false,
   });
-  const settings = useSelector((state) => state.settings);
-
-
-
+  
   /*--------------------------------------------------------------------------------*/
   /*To Expand SITE_LOGO With Sidebar-Menu on Hover                                  */
   /*--------------------------------------------------------------------------------*/
@@ -56,14 +53,14 @@ const Sidebar = (props) => {
     <aside
       className="left-sidebar"
       id="sidebarbg"
-      data-sidebarbg={settings.activeSidebarBg}
+      data-sidebarbg="skin6"
       onMouseEnter={expandLogo.bind(null)}
       onMouseLeave={expandLogo.bind(null)}
     >
       <div className="scroll-sidebar">
         <PerfectScrollbar className="sidebar-nav">
           {/* Profile dropdowm */}
-         
+
           {/*--------------------------------------------------------------------------------*/}
           {/* Sidebar Menus will go here                                                */}
           {/*--------------------------------------------------------------------------------*/}

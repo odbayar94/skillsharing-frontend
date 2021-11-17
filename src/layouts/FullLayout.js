@@ -11,40 +11,11 @@ import Spinner from "./../views/spinner/Spinner";
 const FullLayout = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
 
-  const settings = useSelector((state) => state.settings);
-
   useEffect(() => {
     const updateDimensions = () => {
       let element = document.getElementById("main-wrapper");
       setWidth(window.innerWidth);
-      switch (settings.activeSidebarType) {
-        case "full":
-        case "iconbar":
-          if (width < 1170) {
-            element.setAttribute("data-sidebartype", "mini-sidebar");
-            element.classList.add("mini-sidebar");
-          } else {
-            element.setAttribute(
-              "data-sidebartype",
-              settings.activeSidebarType
-            );
-            element.classList.remove("mini-sidebar");
-          }
-          break;
-
-        case "overlay":
-          if (width < 767) {
-            element.setAttribute("data-sidebartype", "mini-sidebar");
-          } else {
-            element.setAttribute(
-              "data-sidebartype",
-              settings.activeSidebarType
-            );
-          }
-          break;
-
-        default:
-      }
+      
     };
     if (document.readyState === "complete") {
       updateDimensions();
@@ -55,18 +26,18 @@ const FullLayout = (props) => {
       window.removeEventListener("load", updateDimensions.bind(null));
       window.removeEventListener("resize", updateDimensions.bind(null));
     };
-  }, [settings.activeSidebarType, width]);
+  }, ["full", width]);
 
   return (
     <div
       id="main-wrapper"
-      dir={settings.activeDir}
-      data-theme={settings.activeTheme}
-      data-layout={settings.activeThemeLayout}
-      data-sidebartype={settings.activeSidebarType}
-      data-sidebar-position={settings.activeSidebarPos}
-      data-header-position={settings.activeHeaderPos}
-      data-boxed-layout={settings.activeLayout}
+      dir="ltr"
+      data-theme="light"
+      data-layout="vertical"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+      data-header-position="fixed"
+      data-boxed-layout="full"
     >
       {/*--------------------------------------------------------------------------------*/}
       {/* Header                                                                         */}
@@ -127,7 +98,6 @@ const FullLayout = (props) => {
         </div>
         <Footer />
       </div>
-   
     </div>
   );
 };
