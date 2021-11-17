@@ -53,7 +53,7 @@ export const loginUserStart = () => {
   };
 };
 
-export const loginUserSuccess = (token: String, userId: String) => {
+export const loginUserSuccess = (token, userId) => {
   return {
     type: SIGN_IN_SUCCESS,
     token,
@@ -61,7 +61,7 @@ export const loginUserSuccess = (token: String, userId: String) => {
   };
 };
 
-export const loginUserError = (error: any) => {
+export const loginUserError = (error) => {
   return {
     type: SIGN_IN_FAILURE,
     errorMessage: error.response.data.error.message,

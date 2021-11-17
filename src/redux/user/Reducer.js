@@ -15,7 +15,7 @@ export const INITIAL_STATE = {
   token: Cookies.get("token"),
 };
 
-const userReducer = (state = INITIAL_STATE, action: any) => {
+const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SIGN_IN_START:
       return { ...state, logginIn: true };
