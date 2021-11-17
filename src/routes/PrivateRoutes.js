@@ -7,18 +7,18 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={(props) => {
       // const currentUser = AuthenticationService.currentUserValue;
-      const currentUser = true;
-      if (!currentUser) {
-        // not logged in so redirect to login page with the return url
-        return (
-          <Redirect
-            to={{
-              pathname: "/authentication/login",
-              state: { from: props.location },
-            }}
-          />
-        );
-      }
+      const currentUser = false;
+      // if (!currentUser) {
+      //   // not logged in so redirect to login page with the return url
+      //   return (
+      //     <Redirect
+      //       to={{
+      //         pathname: "/authentication/login",
+      //         state: { from: props.location },
+      //       }}
+      //     />
+      //   );
+      // }
 
       // authorised so return component
       return <Component {...props} />;

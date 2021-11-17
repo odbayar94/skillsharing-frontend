@@ -78,8 +78,13 @@ const Login2 = (props) => {
   };
 
   const doLogin = (event) => {
-    const email1 = email;
-    const password1 = password;
+
+    if (validForm()) {
+      const email1 = email;
+      const password1 = password;
+
+      console.log("email1 " + email1 + password1);
+    }
     
     event.preventDefault();
   };
