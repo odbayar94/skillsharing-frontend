@@ -131,8 +131,8 @@ const Header = () => {
                         />
                       </div>
                       <div className="ml-2">
-                        <h4 className="mb-0 text-white">Steave Jobs</h4>
-                        <p className=" mb-0">varun@gmail.com</p>
+                        <h4 className="mb-0 text-white">{user.firstname}</h4>
+                        <p className=" mb-0">{user.email}</p>
                       </div>
                     </div>
 

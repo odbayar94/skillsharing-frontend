@@ -65,6 +65,10 @@ export const SIGN_IN_FAILURE = "SIGN_IN_FAILURE";
 export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS";
 export const LOGOUT = "LOGOUT";
 
+//User register contants
+export const REGISTER_START = "REGISTER_START";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 
 //System constant
 export const REST_API_URL = "http://localhost:5001/api/v1";

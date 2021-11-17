@@ -14,8 +14,9 @@ import {
   Button,
 } from "reactstrap";
 import validators from "./Validators";
-import {loginUser} from "../../redux/user/Action"
 import img2 from "../../assets/images/big/auth-bg.jpg";
+
+import {loginUser} from "../../redux/user/Action"
 
 const sidebarBackground = {
   backgroundImage: "url(" + img2 + ")",
@@ -86,10 +87,8 @@ const Login = (props) => {
   const doLogin = (event) => {
 
     if (validForm()) {
-      const email1 = email;
-      const password1 = password;
 
-      dispatch(loginUser(email1, password1));
+      dispatch(loginUser(email, password));
     }
     
     event.preventDefault();
