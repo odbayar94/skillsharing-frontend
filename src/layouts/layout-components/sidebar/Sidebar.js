@@ -3,16 +3,10 @@ import { NavLink } from "react-router-dom";
 import {
   Nav,
   Collapse,
-  ButtonDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
 } from "reactstrap";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { useSelector } from "react-redux";
 
-import profilebg from "../../../assets/images/background/user-info.jpg";
-import userimg from "../../../assets/images/users/1.jpg";
 
 const Sidebar = (props) => {
   const activeRoute = (routeName) => {
@@ -32,9 +26,7 @@ const Sidebar = (props) => {
   });
   const settings = useSelector((state) => state.settings);
 
-  const [dropdownOpen, setOpen] = useState(false);
 
-  const toggle = () => setOpen(!dropdownOpen);
 
   /*--------------------------------------------------------------------------------*/
   /*To Expand SITE_LOGO With Sidebar-Menu on Hover                                  */
@@ -58,10 +50,6 @@ const Sidebar = (props) => {
     if (window.innerWidth < 800) {
       document.getElementById("main-wrapper").classList.toggle("show-sidebar");
     }
-  };
-
-  const profileimg = {
-    backgroundImage: "url(" + profilebg + ")",
   };
 
   return (

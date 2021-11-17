@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import classnames from 'classnames';
+import React from 'react';
 import {
     Row,
     Col,
@@ -20,9 +19,7 @@ import img8 from '../../../assets/images/users/4.jpg';
 const TimeLine = () => {
 
     return (
-        /*--------------------------------------------------------------------------------*/
-        /* Used In Dashboard-1                                                            */
-        /*--------------------------------------------------------------------------------*/
+        
         <Card>
            
             <CardBody>
