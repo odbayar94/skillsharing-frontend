@@ -77,3 +77,9 @@ export const REST_API_URL = "http://localhost:5001/api/v1";
 export const GET_USER_POST_START = "GET_USER_POST_START";
 export const GET_USER_POST_SUCCESS = "GET_USER_POST_SUCCESS";
 export const GET_USER_POST_FAILURE = "GET_USER_POST_FAILURE";
+
+
+//Send post 
+export const SEND_POST_START = "SEND_POST_START";
+export const SEND_POST_SUCCESS = "SEND_POST_SUCCESS";
+export const SEND_POST_FAILURE = "SEND_POST_FAILURE";

@@ -7,6 +7,9 @@ import {
   GET_USER_POST_START,
   GET_USER_POST_SUCCESS,
   GET_USER_POST_FAILURE,
+  SEND_POST_START,
+  SEND_POST_SUCCESS,
+  SEND_POST_FAILURE,
 } from "../constants";
 
 export const getUserPost = (userId) => async (dispatch) => {
@@ -59,5 +62,60 @@ const getUserPostSuccess = (data)=>{
 const getUserPostError = () => {
   return {
     type: GET_USER_POST_FAILURE,
+  };
+};
+
+export const sendPost = (data) => async (dispatch) =>{
+    console.log(data);
+    dispatch(sendPostStart());
+    const token = Cookies.get("token");
+    axios
+      .post(REST_API_URL + "/posts", data,{
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((result) => {
+        
+        dispatch(
+          sendPostSuccess(
+            result.data.data.id,
+          )
+        );
+      })
+      .catch((err) => {
+        if (!err.response) {
+          const error = {
+            response: {
+              data: {
+                error: {
+                  message: "Сервертэй холбогдоход алдаа гарлаа",
+                },
+              },
+            },
+          };
+
+          dispatch(sendPostError(error));
+        } else {
+          dispatch(sendPostError(err));
+        }
+      });
+}
+const sendPostStart = () => {
+    return {
+      type: SEND_POST_START,
+    };
+}
+
+const sendPostSuccess = (id) => {
+  return {
+    type: SEND_POST_SUCCESS,
+    id
+  };
+};
+
+const sendPostError = () => {
+  return {
+    type: SEND_POST_FAILURE,
   };
 };

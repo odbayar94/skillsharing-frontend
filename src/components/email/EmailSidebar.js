@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import {
   Row,
   Col,
   Button,
-  ListGroup,
-  ListGroupItem,
   Modal,
   ModalHeader,
   ModalBody,
@@ -14,10 +14,29 @@ import {
   Label,
   Input,
 } from "reactstrap";
-import FilterEmail from "../../components/email/FilterLinks";
-import { EmailVisibilityFilters } from "../../redux/email/Action";
+
+import {sendPost} from "../../redux/post/Action"
 
 const EmailSidebar = () => {
+  let title, context;
+const dispatch = useDispatch();
+
+const sumbitPost = function (e) {
+  e.preventDefault();
+
+  dispatch(
+    sendPost({
+      title: title.value,
+      context: context.value,
+    })
+  );
+
+  title.value = null;
+  context.value = null;
+  toggle.bind(null);
+};
+
+
   const [composeModal, setComposeModal] = useState(false);
 
   const toggle = () => {
@@ -31,64 +50,51 @@ const EmailSidebar = () => {
           onClick={toggle.bind(null)}
           className="btn btn-danger d-block text-white"
         >
-          Compose
+          Нийтлэл нэмэх
         </span>
       </div>
       <div className="divider"></div>
-     
+
       <Modal isOpen={composeModal} toggle={toggle.bind(null)} size="lg">
-        <ModalHeader toggle={toggle.bind(null)}>
-          Compose New Message
-        </ModalHeader>
-        <ModalBody>
-          <Form>
+        <ModalHeader toggle={toggle.bind(null)}>Нийтлэл бичих</ModalHeader>
+        <Form onSubmit={sumbitPost}>
+          <ModalBody>
             <div className="form-body">
               <Row>
-                <Col md="6" sm="12">
+                <Col sm="12">
                   <FormGroup>
-                    <Label for="to">To</Label>
-                    <Input type="text" id="to" name="to" />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup>
-                    <Label for="cc">CC</Label>
-                    <Input type="text" id="cc" name="cc" />
+                    <Label for="subject">Гарчиг</Label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      ref={(value) => (title = value)}
+                    />
                   </FormGroup>
                 </Col>
                 <Col sm="12">
                   <FormGroup>
-                    <Label for="subject">Subject</Label>
-                    <Input type="text" id="subject" name="subject" />
-                  </FormGroup>
-                </Col>
-                <Col sm="12">
-                  <FormGroup>
-                    <Label for="msg">Email Message</Label>
-                    <Input type="textarea" name="msg" id="msg" />
+                    <Label for="msg">Текст</Label>
+                    <input
+                      type="textarea"
+                      name="msg"
+                      id="msg"
+                      ref={(value) => (context = value)}
+                    />
                   </FormGroup>
                 </Col>
               </Row>
-
-              <FormGroup>
-                <Label>Attachment</Label>
-                <Input
-                  type="file"
-                  className="form-control-file"
-                  id="projectinput8"
-                />
-              </FormGroup>
             </div>
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle.bind(null)}>
-            Send
-          </Button>{" "}
-          <Button color="secondary" onClick={toggle.bind(null)}>
-            Cancel
-          </Button>
-        </ModalFooter>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="success" type="submit">
+              Хадгалах
+            </Button>{" "}
+            <Button color="danger" onClick={toggle.bind(null)}>
+              Хаах
+            </Button>
+          </ModalFooter>
+        </Form>
       </Modal>
     </div>
   );
