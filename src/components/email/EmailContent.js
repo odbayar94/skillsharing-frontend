@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 const EmailContent = () => {
 
   const postId = useSelector((state) => state.emailReducer.emailContent);
-  const posts = useSelector((state) => state.emailReducer.emails.data);
+  // const posts = useSelector((state) => state.emailReducer.emails.data);
+  const posts = useSelector((state) => state.userPostReducer.data);
   
   const emailDetails = posts.find(function (post, index) {
     if (post._id == postId) return true;
