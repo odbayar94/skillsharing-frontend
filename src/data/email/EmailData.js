@@ -7,7 +7,7 @@ const emailData = {
   status: true,
   data: [
     {
-      _id: 1,
+      _id: "good1",
       title: "It is a long established.",
       createdAt: "3:45 PM",
       context:
@@ -15,7 +15,7 @@ const emailData = {
       status: "Pending",
     },
     {
-      _id: 2,
+      _id: "21231",
       title: "fact that a reader will be distracted.",
       createdAt: "6:01 PM",
       context:
@@ -23,7 +23,7 @@ const emailData = {
       status: "Published",
     },
     {
-      _id: 3,
+      _id: "abada3",
       title:
         "The point of using Lorem Ipsum is that it has a more-or-less normal",
       createdAt: "7:10 AM",

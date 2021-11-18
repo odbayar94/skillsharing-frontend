@@ -1,36 +1,30 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Email from "./EmailListItem";
-import {getUserPost} from "../../redux/post/Action";
 import {
   openEmail,
 } from "../../redux/email/Action";
 import { useSelector, useDispatch } from "react-redux";
 
 const EmailList = ({ showRightPart }) => {
-  const posts = useSelector((state) => state.emailReducer.emails);
-  console.log(posts.data);
-  // const posts = useSelector((state) => state.userPostReducer);
-  const dispatch = useDispatch();
- const user = useSelector((state) => state.user);
-   useEffect(() => {
-     dispatch(getUserPost(user.userId));
-   }, [dispatch, user.userId]);
 
-   
+  const posts = useSelector((state) => state.emailReducer.emails);
+
+  const active = useSelector((state) => state.emailReducer.emailContent);
+
+  const dispatch = useDispatch();
 
   return (
     <ul className="list-group listing-email-over">
-      {posts.data.map((post) => {
-        console.log(post._id)
-        return <Email
-          key={post._id}
-          {...post}
+      {posts.data.map((email) => (
+        <Email
+          key={email.id}
+          active={active}
+          {...email}
           onClick={() => {
-            dispatch(openEmail(post._id));
-            showRightPart();
+            dispatch(openEmail(email._id));
           }}
         />
-        })}
+      ))}
     </ul>
   );
 };

@@ -2,40 +2,34 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const EmailContent = () => {
-  const emailDetails = useSelector(
-    (state) => state.emailReducer.emails[state.emailReducer.emailContent - 1]
-  );
+
+  const postId = useSelector((state) => state.emailReducer.emailContent);
+  const posts = useSelector((state) => state.emailReducer.emails.data);
+  
+  const emailDetails = posts.find(function (post, index) {
+    if (post._id == postId) return true;
+  });
+
 
   return emailDetails ? (
     <div>
       <div className="card-body border-bottom">
-        <h4 className="mb-0">
-          {emailDetails.subject}
-          <span
-            className={
-              "ml-1 badge " +
-              (emailDetails.label === "Pending" ? "badge-warning" : "") +
-              (emailDetails.label === "Published" ? "badge-success" : "") +
-              (emailDetails.label === "Draft" ? "badge-danger" : "")
-            }
-          >
-            {emailDetails.label}
-          </span>
-        </h4>
-      </div>
-      <div className="card-body border-bottom">
         <div className="d-flex align-items-center">
-          <img
-            src={emailDetails.thumbnail}
-            alt="user"
-            className="rounded-circle"
-            width="45"
-          />
           <div className="ml-2">
             <h5 className="mb-0 font-16 font-medium">{emailDetails.title}</h5>
+            <span
+              className={
+                "ml-1 badge " +
+                (emailDetails.status === "Pending" ? "badge-warning" : "") +
+                (emailDetails.status === "Published" ? "badge-success" : "") +
+                (emailDetails.status === "Draft" ? "badge-danger" : "")
+              }
+            >
+              {emailDetails.status}
+            </span>
           </div>
           <div className="ml-auto">
-            <span>{emailDetails.time}</span>
+            <span>{emailDetails.createdAt}</span>
           </div>
         </div>
       </div>
