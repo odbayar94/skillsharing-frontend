@@ -4,12 +4,7 @@ import EmailSidebar from "../../components/email/EmailSidebar";
 import EmailContent from "../../components/email/EmailContent";
 
 const Email = () => {
-  const [showLeft, setShowLeft] = useState(false);
   const [showRight, setshowRight] = useState(false);
-
-  const showLeftPart = () => {
-    setShowLeft(!showLeft);
-  };
 
   const showRightPart = () => {
     setshowRight(!showRight);

@@ -82,9 +82,7 @@ const Register = (props) => {
   };
 
   const doRegister = (event) => {
-    const email1 = email;
-    const password1 = password;
-    // const username1 = username;
+  
     dispatch(register(firstname, lastname, email, password));
     
     event.preventDefault();

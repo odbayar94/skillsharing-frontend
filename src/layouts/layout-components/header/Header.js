@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logOut } from "../../../redux/user/Action";
 import {
   Nav,
@@ -23,9 +23,11 @@ import logolighticon from "../../../assets/images/logo-light-icon.png";
 import logodarktext from "../../../assets/images/logo-text.png";
 import logolighttext from "../../../assets/images/logo-light-text.png";
 import profilephoto from "../../../assets/images/users/1.jpg";
+import Cookies from "js-cookie";
 
-const Header = () => {
-  const user = useSelector((state) => state.user);
+const Header = (props) => {
+  const token = Cookies.get("token");
+  const userData =  JSON.parse(localStorage.getItem("userdata"));
   const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -50,6 +52,7 @@ const Header = () => {
   };
   const systemLogOut = ()=>{
     dispatch(logOut());
+    props.history.push("/");
   }
 
   return (
@@ -107,7 +110,7 @@ const Header = () => {
           </Nav>
           <Nav className="ml-auto float-right" navbar>
             <UncontrolledDropdown nav inNavbar>
-              {user.userId ? (
+              {token ? (
                 <div>
                   <DropdownToggle nav caret className="pro-pic">
                     <img
@@ -131,8 +134,10 @@ const Header = () => {
                         />
                       </div>
                       <div className="ml-2">
-                        <h4 className="mb-0 text-white">{user.firstname}</h4>
-                        <p className=" mb-0">{user.email}</p>
+                        <h4 className="mb-0 text-white">
+                          {userData.firstname}
+                        </h4>
+                        <p className=" mb-0">{userData.email}</p>
                       </div>
                     </div>
 

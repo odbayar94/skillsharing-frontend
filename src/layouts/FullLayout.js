@@ -1,18 +1,16 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { useSelector } from "react-redux";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./layout-components/header/Header";
 import Sidebar from "./layout-components/sidebar/Sidebar";
 import Footer from "./layout-components/footer/Footer";
-import { lazy } from "react";
 import ThemeRoutes from "../routes/Router";
 import Spinner from "./../views/spinner/Spinner";
 
 // const Feed = lazy(() => import("../views/feed/Feed"));
-import Feed from "../views/feed/Feed";
+import Cookies from "js-cookie";
 
 const FullLayout = (props) => {
-  const user = useSelector((state) => state.user);
+  const token = Cookies.get("token");
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const FullLayout = (props) => {
       window.removeEventListener("load", updateDimensions.bind(null));
       window.removeEventListener("resize", updateDimensions.bind(null));
     };
-  }, ["full", width]);
+  }, [width]);
 
   return (
     <div
@@ -42,16 +40,15 @@ const FullLayout = (props) => {
       data-header-position="fixed"
       data-boxed-layout="full"
     >
-      <Header />
+      <Header {...props} />
 
-      {user.userId && <Sidebar {...props} routes={ThemeRoutes} />}
+      {token && <Sidebar {...props} routes={ThemeRoutes} />}
 
       <div className="page-wrapper d-block">
         <div className="page-content container-fluid">
           <Suspense fallback={<Spinner />}>
             <Switch>
-             
-              {user.userId &&
+              {token &&
                 ThemeRoutes.map((prop, key) => {
                   if (prop.navlabel) {
                     return null;

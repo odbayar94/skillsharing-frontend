@@ -58,6 +58,7 @@ export const loginUserStart = () => {
 };
 
 export const loginUserSuccess = (userId, firstname, email) => {
+  localStorage.setItem("userdata", JSON.stringify({ firstname, email }));
   return {
     type: SIGN_IN_SUCCESS,
     userId,
@@ -75,6 +76,7 @@ export const loginUserError = (error) => {
 
 export function logOut() {
   Cookies.remove("token");
+  localStorage.removeItem("userdata");
   return {
     type: LOGOUT,
   };

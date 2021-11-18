@@ -5,7 +5,6 @@ import {
   Collapse,
 } from "reactstrap";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { useSelector } from "react-redux";
 
 
 const Sidebar = (props) => {
