@@ -14,9 +14,9 @@ const EmailContent = () => {
           <span
             className={
               "ml-1 badge " +
-              (emailDetails.label === "Promotional" ? "badge-warning" : "") +
-              (emailDetails.label === "Social" ? "badge-success" : "") +
-              (emailDetails.label === "Health" ? "badge-danger" : "")
+              (emailDetails.label === "Pending" ? "badge-warning" : "") +
+              (emailDetails.label === "Published" ? "badge-success" : "") +
+              (emailDetails.label === "Draft" ? "badge-danger" : "")
             }
           >
             {emailDetails.label}
@@ -32,8 +32,7 @@ const EmailContent = () => {
             width="45"
           />
           <div className="ml-2">
-            <h5 className="mb-0 font-16 font-medium">{emailDetails.from}</h5>
-            <span>to me</span>
+            <h5 className="mb-0 font-16 font-medium">{emailDetails.title}</h5>
           </div>
           <div className="ml-auto">
             <span>{emailDetails.time}</span>
@@ -42,7 +41,7 @@ const EmailContent = () => {
       </div>
       <div
         className="card-body"
-        dangerouslySetInnerHTML={{ __html: emailDetails.emailContent }}
+        dangerouslySetInnerHTML={{ __html: emailDetails.context }}
       ></div>
     </div>
   ) : (

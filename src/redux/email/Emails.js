@@ -5,6 +5,7 @@ import {
   ASSIGN_FOLDER,
   ASSIGN_LABEL,
 } from "../constants/";
+
 import emailData from "../../data/email/EmailData";
 
 const emails = (state = emailData, action) => {

@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from "react";
 import EmailLists from "../../components/email/EmailList";
 import EmailSidebar from "../../components/email/EmailSidebar";
-import EmailActions from "../../components/email/EmailActions";
-import EmailSearch from "../../components/email/EmailSearch";
 import EmailContent from "../../components/email/EmailContent";
 
 const Email = () => {
@@ -20,13 +18,7 @@ const Email = () => {
   return (
     <Fragment>
       <div className="app-drawer">
-        <div
-          className={
-            "left-part bg-white " + (showLeft === true ? "show-panel" : "")
-          }
-        >
-          <EmailSidebar />
-        </div>
+       
         <div className="right-part bg-white app-drawer-content">
           <div
             className={
@@ -49,8 +41,7 @@ const Email = () => {
                 }
               ></i>
             </span>
-            <EmailSearch />
-            <EmailActions />
+            <EmailSidebar />
             <EmailLists showRightPart={showRightPart.bind(null)} />
           </div>
           <div

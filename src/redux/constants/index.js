@@ -72,3 +72,8 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 
 //System constant
 export const REST_API_URL = "http://localhost:5001/api/v1";
+
+//Get user post
+export const GET_USER_POST_START = "GET_USER_POST_START";
+export const GET_USER_POST_SUCCESS = "GET_USER_POST_SUCCESS";
+export const GET_USER_POST_FAILURE = "GET_USER_POST_FAILURE";

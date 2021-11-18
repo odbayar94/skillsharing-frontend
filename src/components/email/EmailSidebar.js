@@ -35,44 +35,7 @@ const EmailSidebar = () => {
         </span>
       </div>
       <div className="divider"></div>
-      <ListGroup className="filter-listing">
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_INBOX}>
-          <i className="fas fa-inbox mr-2"></i> Inbox
-        </FilterEmail>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_SENT}>
-          <i className="fas fa-paper-plane mr-2"></i> Sent
-        </FilterEmail>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_DRAFTS}>
-          <i className="fas fa-file mr-2"></i> Drafts
-        </FilterEmail>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_SPAM}>
-          <i className="fas fa-exclamation-circle mr-2"></i> Spam
-        </FilterEmail>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_TRASH}>
-          <i className="fas fa-trash mr-2"></i> Trash
-        </FilterEmail>
-        <ListGroupItem>
-          <hr />
-        </ListGroupItem>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_STARRED}>
-          <i className="fas fa-star mr-2"></i> Starred
-        </FilterEmail>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_IMPORTANT}>
-          <i className="fas fa-bookmark mr-2"></i> Important
-        </FilterEmail>
-        <ListGroupItem>
-          <hr />
-        </ListGroupItem>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_PROMOTIONAL}>
-          <i className="fas fa-tags mr-2"></i> Promotional
-        </FilterEmail>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_SOCIAL}>
-          <i className="fas fa-tags mr-2"></i> Social
-        </FilterEmail>
-        <FilterEmail filter={EmailVisibilityFilters.SHOW_HEALTH}>
-          <i className="fas fa-tags mr-2"></i> Health
-        </FilterEmail>
-      </ListGroup>
+     
       <Modal isOpen={composeModal} toggle={toggle.bind(null)} size="lg">
         <ModalHeader toggle={toggle.bind(null)}>
           Compose New Message
