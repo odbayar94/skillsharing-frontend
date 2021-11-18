@@ -13,7 +13,7 @@ const EmailList = ({ showRightPart }) => {
    const dispatch = useDispatch();
    const user = useSelector((state) => state.user);
    useEffect(() => {
-     dispatch(getUserPost(user.userId));
+     dispatch(getUserPost());
    }, [dispatch, user.userId]);
 
 

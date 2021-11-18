@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 import "./assets/scss/style.scss";
 import Spinner from "./views/spinner/Spinner";
+import { CookiesProvider } from "react-cookie";
 import "./data";
 
 const App = lazy(
@@ -12,8 +13,10 @@ const App = lazy(
 );
 
 ReactDOM.render(
-  <Suspense fallback={<Spinner />}>
-    <App />
-  </Suspense>,
+  <CookiesProvider>
+    <Suspense fallback={<Spinner />}>
+      <App />
+    </Suspense>
+  </CookiesProvider>,
   document.getElementById("root")
 );

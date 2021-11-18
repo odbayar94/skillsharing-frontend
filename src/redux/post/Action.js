@@ -12,7 +12,7 @@ import {
   SEND_POST_FAILURE,
 } from "../constants";
 
-export const getUserPost = (userId) => async (dispatch) => {
+export const getUserPost = () => async (dispatch) => {
   dispatch(getUserPostStart());
   const token = Cookies.get("token");
 
@@ -66,7 +66,7 @@ const getUserPostError = () => {
 };
 
 export const sendPost = (data) => async (dispatch) =>{
-    console.log(data);
+
     dispatch(sendPostStart());
     const token = Cookies.get("token");
     axios

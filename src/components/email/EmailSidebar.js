@@ -15,7 +15,7 @@ import {
   Input,
 } from "reactstrap";
 
-import {sendPost} from "../../redux/post/Action"
+import {sendPost, getUserPost} from "../../redux/post/Action"
 
 const EmailSidebar = () => {
   let title, context;
@@ -33,7 +33,8 @@ const sumbitPost = function (e) {
 
   title.value = null;
   context.value = null;
-  toggle.bind(null);
+  dispatch(getUserPost());
+  toggle();
 };
 
 
@@ -42,6 +43,7 @@ const sumbitPost = function (e) {
   const toggle = () => {
     setComposeModal(!composeModal);
   };
+
 
   return (
     <div>
@@ -90,7 +92,7 @@ const sumbitPost = function (e) {
             <Button color="success" type="submit">
               Хадгалах
             </Button>{" "}
-            <Button color="danger" onClick={toggle.bind(null)}>
+            <Button color="danger" onClick={toggle}>
               Хаах
             </Button>
           </ModalFooter>

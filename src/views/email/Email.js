@@ -18,29 +18,8 @@ const Email = () => {
   return (
     <Fragment>
       <div className="app-drawer">
-       
         <div className="right-part bg-white app-drawer-content">
-          <div
-            className={
-              "right-left-part " +
-              (showRight === true ? "show-right-left-panel" : "")
-            }
-          >
-            <span
-              onClick={showLeftPart.bind(null)}
-              className={
-                "bg-primary show-left-part text-white d-block d-lg-none " +
-                (showLeft === true ? "left-part-open" : "")
-              }
-            >
-              <i
-                className={
-                  showLeft === true
-                    ? "fas fa-chevron-left"
-                    : "fas fa-chevron-right"
-                }
-              ></i>
-            </span>
+          <div className="right-left-part">
             <EmailSidebar />
             <EmailLists showRightPart={showRightPart.bind(null)} />
           </div>
