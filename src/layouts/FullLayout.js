@@ -10,6 +10,7 @@ import Cookies from "js-cookie";
 
 const Feed = lazy(() => import("../views/feed/Feed"));
 const Email = lazy(() => import("../views/email/Email"));
+const AddPost = lazy(() => import("../views/addpost/AddPost"));
 const Notes = lazy(() => import("../views/notes/Notes"));
 const FirstDashboard = lazy(() => import("../views/dashboards/Dashboard"));
 
@@ -62,6 +63,12 @@ const data = true;
               {token && (
                 <>
                   <Route path="/posts" exact={data} component={Email} key="3" />
+                  <Route
+                    path="/add-post"
+                    exact={data}
+                    component={AddPost}
+                    key="4"
+                  />
                 </>
               )}
             </Switch>

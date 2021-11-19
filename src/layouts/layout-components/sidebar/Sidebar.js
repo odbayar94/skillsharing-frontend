@@ -95,6 +95,21 @@ const Sidebar = (props) => {
                   <span className="hide-menu">Email</span>
                 </NavLink>
               </li>
+              <li
+                onClick={scrollTop}
+                className={activeRoute("/add-post") + " sidebar-item"}
+                key="3"
+              >
+                <NavLink
+                  to="/add-post"
+                  onClick={showMobilemenu}
+                  className="sidebar-link"
+                  activeClassName="active"
+                >
+                  <i className="mdi mdi-email" />
+                  <span className="hide-menu">Add post</span>
+                </NavLink>
+              </li>
             </>
           </Nav>
         </PerfectScrollbar>

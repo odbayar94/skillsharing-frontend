@@ -15,13 +15,6 @@ const FirstDashboard = () => {
   useEffect(() => {
     dispatch(getAllPosts());
   }, [dispatch]);
-  // console.log(posts.data);
-
-  // const context = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio Praesent libero. Sed cursus ante dapibus diam."
-  // // const comments = 2;
-  // const clapsNumber = 10;
-  // const createdAt = "5 min ago";
-  // const title = "Энэ бол гарчиг";
 
   return (
     <div>

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { EditorState, convertToRaw } from "draft-js";
+import draftToHtml from "draftjs-to-html";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { useHistory } from "react-router-dom";
+
 
 import {
   Row,
@@ -43,61 +50,16 @@ const sumbitPost = function (e) {
   const toggle = () => {
     setComposeModal(!composeModal);
   };
-
+  const [editorState, onEditorStateChange] = useState("");
 
   return (
     <div>
       <div className="p-3">
-        <span
-          onClick={toggle.bind(null)}
-          className="btn btn-danger d-block text-white"
-        >
-          Нийтлэл нэмэх
+        <span className="p-3 w-100 bg-gradient-primary text-white">
+          Миний бичсэн нийтлэл
         </span>
       </div>
       <div className="divider"></div>
-
-      <Modal isOpen={composeModal} toggle={toggle.bind(null)} size="lg">
-        <ModalHeader toggle={toggle.bind(null)}>Нийтлэл бичих</ModalHeader>
-        <Form onSubmit={sumbitPost}>
-          <ModalBody>
-            <div className="form-body">
-              <Row>
-                <Col sm="12">
-                  <FormGroup>
-                    <Label for="subject">Гарчиг</Label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      ref={(value) => (title = value)}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col sm="12">
-                  <FormGroup>
-                    <Label for="msg">Текст</Label>
-                    <input
-                      type="textarea"
-                      name="msg"
-                      id="msg"
-                      ref={(value) => (context = value)}
-                    />
-                  </FormGroup>
-                </Col>
-              </Row>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="success" type="submit">
-              Хадгалах
-            </Button>{" "}
-            <Button color="danger" onClick={toggle}>
-              Хаах
-            </Button>
-          </ModalFooter>
-        </Form>
-      </Modal>
     </div>
   );
 };
