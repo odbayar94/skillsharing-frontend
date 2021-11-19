@@ -26,13 +26,16 @@ const FirstDashboard = () => {
                 <Col sm="12">
                   <div className="profiletimeline">
                     {posts.data.map((post) => (
-                      <TimeLine
-                        key={post._id}
-                        context={post.context}
-                        claps={post.clapsNumber}
-                        date={post.createdAt}
-                        title={post.title}
-                      />
+                        <TimeLine
+                          key={post._id}
+                          id={post._id}
+                          context={post.context}
+                          claps={post.clapsNumber}
+                          date={post.createdAt}
+                          title={post.title}
+                        />
+                        
+                     
                     ))}
                     {/* <TimeLine
                       context={context}

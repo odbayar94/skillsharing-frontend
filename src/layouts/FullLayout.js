@@ -7,11 +7,12 @@ import Footer from "./layout-components/footer/Footer";
 import ThemeRoutes from "../routes/Router";
 import Spinner from "./../views/spinner/Spinner";
 import Cookies from "js-cookie";
+import ViewPost from "../views/feed/ViewPost";
 
 const Feed = lazy(() => import("../views/feed/Feed"));
 const Email = lazy(() => import("../views/email/Email"));
 const AddPost = lazy(() => import("../views/addpost/AddPost"));
-const Notes = lazy(() => import("../views/notes/Notes"));
+const ViewPost1 = lazy(() => import("../views/feed/ViewPost"));
 const FirstDashboard = lazy(() => import("../views/dashboards/Dashboard"));
 
 const FullLayout = (props) => {
@@ -54,20 +55,21 @@ const data = true;
           <Suspense fallback={<Spinner />}>
             <Switch>
               <Route path="/" exact={data} component={Feed} key="1" />
+              <Route path="/post/:id" component={ViewPost} key="2" />
               <Route
                 path="/dashboard"
                 exact={data}
                 component={FirstDashboard}
-                key="2"
+                key="3"
               />
               {token && (
                 <>
-                  <Route path="/posts" exact={data} component={Email} key="3" />
+                  <Route path="/posts" exact={data} component={Email} key="4" />
                   <Route
                     path="/add-post"
                     exact={data}
                     component={AddPost}
-                    key="4"
+                    key="5"
                   />
                 </>
               )}
