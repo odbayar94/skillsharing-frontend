@@ -19,7 +19,7 @@ import img8 from '../../../assets/images/users/4.jpg';
 const TimeLine = ({date, title, context, comments, claps}) => {
 
     return (
-            <div>
+            <div className="feed-post">
                 <div className="d-flex">
                     <div>
                         <img
@@ -37,7 +37,6 @@ const TimeLine = ({date, title, context, comments, claps}) => {
                             <p className="mt-2">{context}</p>
                         </div>
                         <div className="like-comm m-t-20">
-                            <a href="/" className="link mr-2">{comments} comment</a>
                             <a href="/" className="link mr-2">
                             <i className="fa fa-heart text-danger" /> {claps} claps</a>
                         </div>

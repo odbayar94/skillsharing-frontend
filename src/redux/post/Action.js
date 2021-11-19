@@ -10,7 +10,53 @@ import {
   SEND_POST_START,
   SEND_POST_SUCCESS,
   SEND_POST_FAILURE,
+  GET_ALL_POSTS_START,
+  GET_ALL_POSTS_SUCCESS,
+  GET_ALL_POSTS_FAILURE,
 } from "../constants";
+
+export const getAllPosts = () => async(dispatch) => {
+  dispatch(getAllPostsStart());
+  axios
+    .get(REST_API_URL + "/posts")
+    .then((result) => {
+      dispatch(getAllPostsSuccess(result.data.data));
+    })
+    .catch((err) => {
+      if (!err.response) {
+        const error = {
+          response: {
+            data: {
+              error: {
+                message: "Сервертэй холбогдоход алдаа гарлаа",
+              },
+            },
+          },
+        };
+
+        dispatch(getAllPostsError(error));
+      } else {
+        dispatch(getAllPostsError(err));
+      }
+    });
+}
+const getAllPostsStart = ()=>{
+      return {
+        type: GET_ALL_POSTS_START,
+      };
+}
+
+const getAllPostsSuccess = (data) => {
+  return {
+    type: GET_ALL_POSTS_SUCCESS,
+    data,
+  };
+};
+const getAllPostsError = () => {
+  return {
+    type: GET_ALL_POSTS_FAILURE,
+  };
+};
 
 export const getUserPost = () => async (dispatch) => {
   dispatch(getUserPostStart());
