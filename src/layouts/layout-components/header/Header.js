@@ -26,6 +26,7 @@ import profilephoto from "../../../assets/images/users/1.jpg";
 import Cookies from "js-cookie";
 
 const Header = (props) => {
+  
   const token = Cookies.get("token");
   const userData =  JSON.parse(localStorage.getItem("userdata"));
   const dispatch = useDispatch();

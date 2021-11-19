@@ -44,11 +44,9 @@ const Email = ({
 );
 
 Email.propTypes = {
-
-  title: PropTypes.func.isRequired,
-  createdAt: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
   context: PropTypes.string.isRequired,
- 
 };
 
 export default Email;

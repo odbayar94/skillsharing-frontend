@@ -1,13 +1,17 @@
 import React, { useState, useEffect, Suspense } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { lazy } from "react";
+import { Route, Switch} from "react-router-dom";
 import Header from "./layout-components/header/Header";
 import Sidebar from "./layout-components/sidebar/Sidebar";
 import Footer from "./layout-components/footer/Footer";
 import ThemeRoutes from "../routes/Router";
 import Spinner from "./../views/spinner/Spinner";
-
-// const Feed = lazy(() => import("../views/feed/Feed"));
 import Cookies from "js-cookie";
+
+const Feed = lazy(() => import("../views/feed/Feed"));
+const Email = lazy(() => import("../views/email/Email"));
+const Notes = lazy(() => import("../views/notes/Notes"));
+const FirstDashboard = lazy(() => import("../views/dashboards/Dashboard"));
 
 const FullLayout = (props) => {
   const token = Cookies.get("token");
@@ -28,7 +32,7 @@ const FullLayout = (props) => {
       window.removeEventListener("resize", updateDimensions.bind(null));
     };
   }, [width]);
-
+const data = true;
   return (
     <div
       id="main-wrapper"
@@ -48,46 +52,18 @@ const FullLayout = (props) => {
         <div className="page-content container-fluid">
           <Suspense fallback={<Spinner />}>
             <Switch>
-              {token &&
-                ThemeRoutes.map((prop, key) => {
-                  if (prop.navlabel) {
-                    return null;
-                  } else if (prop.collapse) {
-                    return prop.child.map((prop2, key2) => {
-                      if (prop2.collapse) {
-                        return prop2.subchild.map((prop3, key3) => {
-                          return (
-                            <Route
-                              path={prop3.path}
-                              component={prop3.component}
-                              key={key3}
-                            />
-                          );
-                        });
-                      }
-                      return (
-                        <Route
-                          path={prop2.path}
-                          component={prop2.component}
-                          key={key2}
-                        />
-                      );
-                    });
-                  } else if (prop.redirect) {
-                    return (
-                      <Redirect from={prop.path} to={prop.pathTo} key={key} />
-                    );
-                  } else {
-                    return (
-                      <Route
-                        path={prop.path}
-                        exact={prop.exact}
-                        component={prop.component}
-                        key={key}
-                      />
-                    );
-                  }
-                })}
+              <Route path="/" exact={data} component={Feed} key="1" />
+              <Route
+                path="/dashboard"
+                exact={data}
+                component={FirstDashboard}
+                key="2"
+              />
+              {token && (
+                <>
+                  <Route path="/posts" exact={data} component={Email} key="3" />
+                </>
+              )}
             </Switch>
           </Suspense>
         </div>

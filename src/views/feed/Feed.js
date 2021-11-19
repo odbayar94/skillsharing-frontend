@@ -10,10 +10,10 @@ import {
 
 
 const FirstDashboard = () => {
-   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loginUser());
-  }, [dispatch]);
+  //  const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(loginUser());
+  // }, [dispatch]);
 
   const context = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio Praesent libero. Sed cursus ante dapibus diam."
   const comments = 2;

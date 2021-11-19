@@ -64,150 +64,38 @@ const Sidebar = (props) => {
           {/* Sidebar Menus will go here                                                */}
           {/*--------------------------------------------------------------------------------*/}
           <Nav id="sidebarnav">
-            {props.routes.map((prop, key) => {
-              if (prop.redirect) {
-                return null;
-              } else if (prop.navlabel) {
-                return (
-                  <li className="nav-small-cap" key={key}>
-                    <i className={prop.icon}></i>
-                    <span className="hide-menu">{prop.name}</span>
-                  </li>
-                );
-                /*--------------------------------------------------------------------------------*/
-                /* Child Menus wiil be goes here                                                    */
-                /*--------------------------------------------------------------------------------*/
-              } else if (prop.collapse) {
-                let firstdd = {};
-                firstdd[prop.state] = !state[prop.state];
-
-                return (
-                  <li
-                    className={activeRoute(prop.path) + " sidebar-item"}
-                    key={key}
-                  >
-                    <span
-                      data-toggle="collapse"
-                      className="sidebar-link has-arrow"
-                      aria-expanded={state[prop.state]}
-                      onClick={() => setState(firstdd)}
-                    >
-                      <i className={prop.icon} />
-                      <span className="hide-menu">{prop.name}</span>
-                    </span>
-                    <Collapse isOpen={state[prop.state]}>
-                      <ul className="first-level">
-                        {prop.child.map((prop, key) => {
-                          if (prop.redirect) return null;
-
-                          /*--------------------------------------------------------------------------------*/
-                          /* Child Sub-Menus wiil be goes here                                                    */
-                          /*--------------------------------------------------------------------------------*/
-
-                          if (prop.collapse) {
-                            let seconddd = {};
-                            seconddd[prop["cstate"]] = !cstate[prop.cstate];
-                            return (
-                              <li
-                                className={
-                                  activeRoute(prop.path) + " sidebar-item"
-                                }
-                                key={key}
-                              >
-                                <span
-                                  data-toggle="collapse"
-                                  className="sidebar-link has-arrow"
-                                  aria-expanded={cstate[prop.cstate]}
-                                  onClick={() => csetState(seconddd)}
-                                >
-                                  <i className={prop.icon} />
-                                  <span className="hide-menu">{prop.name}</span>
-                                </span>
-                                <Collapse isOpen={cstate[prop.cstate]}>
-                                  <ul className="second-level">
-                                    {prop.subchild.map((prop, key) => {
-                                      if (prop.redirect) return null;
-                                      return (
-                                        <li
-                                          className={
-                                            activeRoute(prop.path) +
-                                            " sidebar-item"
-                                          }
-                                          key={key}
-                                        >
-                                          <NavLink
-                                            to={prop.path}
-                                            activeClassName="active"
-                                            className="sidebar-link"
-                                          >
-                                            <i className={prop.icon} />
-                                            <span className="hide-menu">
-                                              {" "}
-                                              {prop.name}
-                                            </span>
-                                          </NavLink>
-                                        </li>
-                                      );
-                                    })}
-                                  </ul>
-                                </Collapse>
-                              </li>
-                            );
-                          } else {
-                            return (
-                              <li
-                                onClick={scrollTop}
-                                className={
-                                  activeRoute(prop.path) +
-                                  (prop.pro ? " active active-pro" : "") +
-                                  " sidebar-item"
-                                }
-                                key={key}
-                              >
-                                <NavLink
-                                  to={prop.path}
-                                  className="sidebar-link"
-                                  activeClassName="active"
-                                  onClick={showMobilemenu}
-                                >
-                                  <i className={prop.icon} />
-                                  <span className="hide-menu">{prop.name}</span>
-                                </NavLink>
-                              </li>
-                            );
-                          }
-                        })}
-                      </ul>
-                    </Collapse>
-                  </li>
-                );
-              } else {
-                return (
-                  /*--------------------------------------------------------------------------------*/
-                  /* Adding Sidebar Item                                                            */
-                  /*--------------------------------------------------------------------------------*/
-                  <li
-                    onClick={scrollTop}
-                    className={
-                      activeRoute(prop.path) +
-                      (prop.pro ? " active active-pro" : "") +
-                      " sidebar-item"
-                    }
-                    key={key}
-                  >
-                    <NavLink
-                      to={prop.path}
-                      onClick={showMobilemenu}
-                      className="sidebar-link"
-                      activeClassName="active"
-                    >
-                      <i className={prop.icon} />
-                      <span className="hide-menu">{prop.name}</span>
-                    </NavLink>
-                  </li>
-                );
-              }
-            })}
+            <>
+              <li
+                onClick={scrollTop}
+                className={activeRoute("/dashboard") + " sidebar-item"}
+                key="2"
+              >
+                <NavLink
+                  to="/dashboard"
+                  onClick={showMobilemenu}
+                  className="sidebar-link"
+                  activeClassName="active"
+                >
+                  <i className="mdi mdi-adjust" />
+                  <span className="hide-menu">Dashboard</span>
+                </NavLink>
+              </li>
+              <li
+                onClick={scrollTop}
+                className={activeRoute("/posts") + " sidebar-item"}
+                key="3"
+              >
+                <NavLink
+                  to="/posts"
+                  onClick={showMobilemenu}
+                  className="sidebar-link"
+                  activeClassName="active"
+                >
+                  <i className="mdi mdi-email" />
+                  <span className="hide-menu">Email</span>
+                </NavLink>
+              </li>
+            </>
           </Nav>
         </PerfectScrollbar>
       </div>

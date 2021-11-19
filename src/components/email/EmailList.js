@@ -24,7 +24,7 @@ const EmailList = ({ showRightPart }) => {
     <ul className="list-group listing-email-over">
       {posts.data.map((email) => (
         <Email
-          key={email.id}
+          key={email._id}
           active={active}
           {...email}
           onClick={() => {

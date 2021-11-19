@@ -24,7 +24,7 @@ var ThemeRoutes = [
     component: FirstDashboard,
   },
   {
-    path: "/email",
+    path: "/posts",
     name: "Email",
     icon: "mdi mdi-email",
     component: Email,
