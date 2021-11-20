@@ -45,12 +45,11 @@ function AddPost() {
         <div className="container">
           <div className="row">
             <form onSubmit={addDetails} className="update__forms">
-              <h3 className="myaccount-content"> Add </h3>
               <div className="form-row">
                 <div className="form-group col-md-12">
                   <label className="font-weight-bold">
                     {" "}
-                    Title <span className="required"> * </span>{" "}
+                    Гарчиг <span className="required"> * </span>{" "}
                   </label>
                   <input
                     type="text"
@@ -58,14 +57,14 @@ function AddPost() {
                     value={userInfo.title}
                     onChange={onChangeValue}
                     className="form-control"
-                    placeholder="Title"
+                    placeholder="Гарчиг"
                     required
                   />
                 </div>
                 <div className="form-group col-md-12 editor">
                   <label className="font-weight-bold">
                     {" "}
-                    context <span className="required"> * </span>{" "}
+                    Бичвэр <span className="required"> * </span>{" "}
                   </label>
                   <Editor
                     editorState={context}
@@ -86,8 +85,7 @@ function AddPost() {
                
                 <div className="form-group col-sm-12 text-right">
                   <button type="submit" className="btn btn__theme">
-                    {" "}
-                    Submit{" "}
+                    Илгээх
                   </button>
                 </div>
               </div>

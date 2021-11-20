@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import post from "./post";
-import allPosts from "./allPosts";
+import getApprovedPosts from "./getApprovedPosts";
 import singlePost from "./singlePost";
 
 const postReducer = combineReducers({
   post,
-  allPosts,
+  getApprovedPosts,
   singlePost,
 });
 

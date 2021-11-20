@@ -1,27 +1,27 @@
-import {
-  GET_ALL_POSTS_START,
-  GET_ALL_POSTS_SUCCESS,
-  GET_ALL_POSTS_FAILURE,
-} from "../constants";
+import { DASHBOARD_START, DASHBOARD_ERROR, DASHBOARD_SUCCESS } from "../constants";
 
 export const INITIAL_STATE = {
   loading: false,
   error: false,
-  data: [],
+  salary: "-",
+  point: "-",
+  month: "-",
   errorMessage: null,
 };
 
-const allPosts = (state = INITIAL_STATE, action) => {
+const card = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case GET_ALL_POSTS_START:
+    case DASHBOARD_START:
       return { ...state, loading: true };
-    case GET_ALL_POSTS_SUCCESS:
+    case DASHBOARD_SUCCESS:
       return {
         ...state,
         loading: false,
-        data: action.data,
+        salary: action.data.salary,
+        point: action.data.point,
+        month: action.data.month
       };
-    case GET_ALL_POSTS_FAILURE:
+    case DASHBOARD_ERROR:
       return {
         ...state,
         loading: false,
@@ -32,4 +32,4 @@ const allPosts = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-export default allPosts;
+export default card;

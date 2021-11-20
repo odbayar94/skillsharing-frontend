@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPosts } from "../../redux/post/Action";
+import { getApprovedPosts } from "../../redux/post/Action";
 import { Row, Col, Card, CardBody } from "reactstrap";
 import {
   TimeLine,
@@ -10,10 +10,10 @@ require("dotenv").config();
 
 
 const FirstDashboard = () => {
-  const posts = useSelector((state) => state.postReducer.allPosts);
+  const posts = useSelector((state) => state.postReducer.getApprovedPosts);
    const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllPosts());
+    dispatch(getApprovedPosts());
   }, [dispatch]);
 
   return (

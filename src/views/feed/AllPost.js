@@ -8,7 +8,7 @@ import "./AllPost.css";
 
 
 function AllPost() {
-const posts = useSelector((state) => state.postReducer.allPosts);
+const posts = useSelector((state) => state.postReducer.getApprovedPosts);
 const dispatch = useDispatch();
 useEffect(() => {
   dispatch(getAllPosts());

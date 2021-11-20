@@ -10,20 +10,20 @@ import {
   SEND_POST_START,
   SEND_POST_SUCCESS,
   SEND_POST_FAILURE,
-  GET_ALL_POSTS_START,
-  GET_ALL_POSTS_SUCCESS,
-  GET_ALL_POSTS_FAILURE,
+  GET_APPROVED_POSTS_START,
+  GET_APPROVED_POSTS_SUCCESS,
+  GET_APPROVED_POSTS_FAILURE,
   GET_POST_START,
   GET_POST_SUCCESS,
   GET_POST_ERROR,
 } from "../constants";
 
-export const getAllPosts = () => async(dispatch) => {
-  dispatch(getAllPostsStart());
+export const getApprovedPosts = () => async (dispatch) => {
+  dispatch(getApprovedPostsStart());
   axios
     .get(REST_API_URL + "/posts")
     .then((result) => {
-      dispatch(getAllPostsSuccess(result.data.data));
+      dispatch(getApprovedPostsSuccess(result.data.data));
     })
     .catch((err) => {
       if (!err.response) {
@@ -37,27 +37,27 @@ export const getAllPosts = () => async(dispatch) => {
           },
         };
 
-        dispatch(getAllPostsError(error));
+        dispatch(getApprovedPostsError(error));
       } else {
-        dispatch(getAllPostsError(err));
+        dispatch(getApprovedPostsError(err));
       }
     });
-}
-const getAllPostsStart = ()=>{
-      return {
-        type: GET_ALL_POSTS_START,
-      };
-}
-
-const getAllPostsSuccess = (data) => {
+};
+const getApprovedPostsStart = () => {
   return {
-    type: GET_ALL_POSTS_SUCCESS,
+    type: GET_APPROVED_POSTS_START,
+  };
+};
+
+const getApprovedPostsSuccess = (data) => {
+  return {
+    type: GET_APPROVED_POSTS_SUCCESS,
     data,
   };
 };
-const getAllPostsError = (error) => {
+const getApprovedPostsError = (error) => {
   return {
-    type: GET_ALL_POSTS_FAILURE,
+    type: GET_APPROVED_POSTS_FAILURE,
     errorMessage: error.response.data.error.message,
   };
 };

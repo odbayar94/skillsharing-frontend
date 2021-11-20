@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { Row, Col } from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getDashboard } from "../../redux/dashboard/Action";
 
 import {
   CardBandwidth,
@@ -7,17 +9,21 @@ import {
 } from "../../components/dashboard";
 
 const FirstDashboard = () => {
-  useEffect(()=>{
+  
+  const dashboard = useSelector((state) => state.dashboardReducer.card);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getDashboard());
+  }, [dispatch]);
 
-  },[])
   return (
     <div>
       <Row>
         <Col lg="6" md="12">
-          <CardBandwidth salary="51" month="2021-11" />
+          <CardBandwidth salary={dashboard.salary} month={dashboard.month} />
         </Col>
         <Col lg="6" md="12">
-          <CardDownload point="21" month="2021-11" />
+          <CardDownload point={dashboard.point} month={dashboard.month} />
         </Col>
       </Row>
       <Row>
