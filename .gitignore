@@ -67,7 +67,9 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
+/build
+build
+package-lock.json
 # dotenv environment variables file
 .env
 .env.test
