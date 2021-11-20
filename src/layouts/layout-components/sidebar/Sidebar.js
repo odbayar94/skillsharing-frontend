@@ -98,7 +98,7 @@ const Sidebar = (props) => {
               <li
                 onClick={scrollTop}
                 className={activeRoute("/add-post") + " sidebar-item"}
-                key="3"
+                key="4"
               >
                 <NavLink
                   to="/add-post"
