@@ -18,6 +18,8 @@ const FirstDashboard = () => {
 
   return (
     <div>
+      <h1>{process.env.REST_API_URI}</h1>
+      <h1>Hello</h1>
       <Row>
         <Col md="12" xl="12" className="col-xlg-12">
           <Card>
@@ -26,16 +28,14 @@ const FirstDashboard = () => {
                 <Col sm="12">
                   <div className="profiletimeline">
                     {posts.data.map((post) => (
-                        <TimeLine
-                          key={post._id}
-                          id={post._id}
-                          context={post.context}
-                          claps={post.clapsNumber}
-                          date={post.createdAt}
-                          title={post.title}
-                        />
-                        
-                     
+                      <TimeLine
+                        key={post._id}
+                        id={post._id}
+                        context={post.context}
+                        claps={post.clapsNumber}
+                        date={post.createdAt}
+                        title={post.title}
+                      />
                     ))}
                     {/* <TimeLine
                       context={context}
