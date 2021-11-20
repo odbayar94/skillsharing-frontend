@@ -3,7 +3,7 @@ import { Card, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 
 import Chart from "react-apexcharts";
 
-const CardDownload = () => {
+const CardDownload = ({...props}) => {
   const optionsdownload = {
     plotOptions: {
       bar: {
@@ -53,13 +53,13 @@ const CardDownload = () => {
             </h1>
           </div>
           <div>
-            <CardTitle className="text-white">Download count</CardTitle>
-            <CardSubtitle className="text-white op-5">March 2017</CardSubtitle>
+            <CardTitle className="text-white">Нийт оноо</CardTitle>
+            <CardSubtitle className="text-white op-5">{props.month}</CardSubtitle>
           </div>
         </div>
         <div className="d-flex align-items-center mt-4">
           <div className="mr-auto">
-            <h2 className="font-light text-white">35487</h2>
+            <h2 className="font-light text-white">{props.point} оноо</h2>
           </div>
           <div>
             <Chart

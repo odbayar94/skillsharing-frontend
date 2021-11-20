@@ -3,7 +3,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, Col, Row } from "reactstrap";
 
 import Chart from "react-apexcharts";
 
-const CardBandwidth = () => {
+const CardBandwidth = ({...props}) => {
   const optionsbandwidth = {
     colors: ["#fff"],
     grid: {
@@ -52,13 +52,13 @@ const CardBandwidth = () => {
             </h1>
           </div>
           <div>
-            <CardTitle className="text-white">Bandwidth usage</CardTitle>
-            <CardSubtitle className="text-white op-5">March 2017</CardSubtitle>
+            <CardTitle className="text-white">Нийт цалин</CardTitle>
+            <CardSubtitle className="text-white op-5">{props.month}</CardSubtitle>
           </div>
         </div>
         <Row className="mt-2">
           <Col xs="4" className="align-self-center">
-            <h2 className="font-light text-white">50 GB</h2>
+            <h2 className="font-light text-white">{props.salary} ₮</h2>
           </Col>
           <Col xs="8" className="pt-2 pb-3 align-self-center">
             <div className="float-right">
