@@ -1,3 +1,6 @@
+//System constant
+export const REST_API_URL = "https://leap4.retoch.mn/api/v1";
+
 // SETTINGS CONSTANTS
 export const LOGO_BG = "LOGO_BG";
 export const NAVBAR_BG = "NAVBAR_BG";
@@ -58,9 +61,8 @@ export const DELETE_NOTE = "DELETE_NOTE";
 export const ADD_NOTE = "ADD_NOTE";
 export const FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS";
 
-
 //USER Constants
-export const SIGN_IN_START ="SIGN_IN_START";
+export const SIGN_IN_START = "SIGN_IN_START";
 export const SIGN_IN_FAILURE = "SIGN_IN_FAILURE";
 export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS";
 export const LOGOUT = "LOGOUT";
@@ -70,16 +72,12 @@ export const REGISTER_START = "REGISTER_START";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 
-//System constant
-export const REST_API_URL = "http://localhost:5001/api/v1";
-
 //Get user post
 export const GET_USER_POST_START = "GET_USER_POST_START";
 export const GET_USER_POST_SUCCESS = "GET_USER_POST_SUCCESS";
 export const GET_USER_POST_FAILURE = "GET_USER_POST_FAILURE";
 
-
-//Send post 
+//Send post
 export const SEND_POST_START = "SEND_POST_START";
 export const SEND_POST_SUCCESS = "SEND_POST_SUCCESS";
 export const SEND_POST_FAILURE = "SEND_POST_FAILURE";

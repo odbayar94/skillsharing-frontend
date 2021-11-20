@@ -7,8 +7,8 @@ const EmailContent = () => {
   // const posts = useSelector((state) => state.emailReducer.emails.data);
   const posts = useSelector((state) => state.userPostReducer.data);
   
-  const emailDetails = posts.find(function (post, index) {
-    if (post._id == postId) return true;
+  const emailDetails = posts.find(function (post) {
+    if (post._id === postId) return true;
   });
 
 
