@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Row, Col } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getDashboard } from "../../redux/dashboard/Action";
+import AllPostList from "../../components/dashboard/AllPostList"
 
 import {
   CardBandwidth,
@@ -27,7 +28,9 @@ const FirstDashboard = () => {
         </Col>
       </Row>
       <Row>
-        <Col md="12" xl="12" className="col-xlg-12"></Col>
+        <Col md="12" xl="12" className="col-xlg-12">
+          <AllPostList/>
+        </Col>
       </Row>
     </div>
   );

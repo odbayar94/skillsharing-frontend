@@ -64,6 +64,7 @@
     "react-stepzilla": "^6.0.2",
     "react-table-v6": "^6.8.6",
     "react-tagsinput": "^3.19.0",
+    "react-toastify": "^8.1.0",
     "react-validation": "^3.0.7",
     "react-validation-mixin": "^5.4.0",
     "reactstrap": "^8.9.0",

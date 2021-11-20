@@ -16,6 +16,9 @@ import {
   GET_POST_START,
   GET_POST_SUCCESS,
   GET_POST_ERROR,
+  GET_ALL_POSTS_START,
+  GET_ALL_POSTS_SUCCESS,
+  GET_ALL_POSTS_ERROR,
 } from "../constants";
 
 export const getApprovedPosts = () => async (dispatch) => {
@@ -215,6 +218,55 @@ const getPostSuccess = (data)=>{
 const getPostError = (error) => {
   return {
     type: GET_POST_ERROR,
+    errorMessage: error.response.data.error.message,
+  };
+};
+
+export const getAllPosts = () => async (dispatch) => {
+  const token = Cookies.get("token");
+  dispatch(getAllPostsStart());
+  axios
+    .get(REST_API_URL + "/posts/all", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((result) => {
+      dispatch(getAllPostsSuccess(result.data.data));
+    })
+    .catch((err) => {
+      if (!err.response) {
+        const error = {
+          response: {
+            data: {
+              error: {
+                message: "Сервертэй холбогдоход алдаа гарлаа",
+              },
+            },
+          },
+        };
+
+        dispatch(getAllPostsError(error));
+      } else {
+        dispatch(getAllPostsError(err));
+      }
+    });
+};
+const getAllPostsStart = () => {
+  return {
+    type: GET_ALL_POSTS_START,
+  };
+};
+
+const getAllPostsSuccess = (data) => {
+  return {
+    type: GET_ALL_POSTS_SUCCESS,
+    data,
+  };
+};
+const getAllPostsError = (error) => {
+  return {
+    type: GET_ALL_POSTS_ERROR,
     errorMessage: error.response.data.error.message,
   };
 };
