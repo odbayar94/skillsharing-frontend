@@ -70,6 +70,7 @@ typings/
 /build
 build
 package-lock.json
+yarn.lock
 # dotenv environment variables file
 .env
 .env.test
