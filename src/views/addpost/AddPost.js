@@ -3,8 +3,6 @@ import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { sendPost} from "../../redux/post/Action";
 import "./AddPost.css";
@@ -12,7 +10,6 @@ import "./AddPost.css";
 
 function AddPost() {
     const dispatch = useDispatch();
-  let history = useHistory();
   const [userInfo, setuserInfo] = useState({
     title: "",
   });
@@ -29,7 +26,6 @@ function AddPost() {
     setContext(editorState);
   };
 
-  const [isError, setError] = useState(null);
   const addDetails = (event) => {
     
       event.preventDefault();
@@ -87,7 +83,7 @@ function AddPost() {
                     )}
                   />
                 </div>
-                {isError !== null && <div className="errors"> {isError} </div>}
+               
                 <div className="form-group col-sm-12 text-right">
                   <button type="submit" className="btn btn__theme">
                     {" "}

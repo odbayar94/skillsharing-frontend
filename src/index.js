@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import "./assets/scss/style.scss";
 import Spinner from "./views/spinner/Spinner";
 import { CookiesProvider } from "react-cookie";
-import "./data";
-require("dotenv").config();
+
 
 const App = lazy(
   () =>

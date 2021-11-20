@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPosts } from "../../redux/post/Action";
-
 import { Row, Col, Card, CardBody } from "reactstrap";
 import {
   TimeLine,
 } from "../../components/dashboard/index.js";
+require("dotenv").config();
 
 
 

@@ -7,7 +7,7 @@ const ViewPost = (props) => {
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(getPost(props.match.params.id));
-    }, [dispatch]);
+    }, [dispatch, props.match.params.id]);
   return (
       <div>
           <h2>{post.data.title}</h2>

@@ -12,7 +12,6 @@ import ViewPost from "../views/feed/ViewPost";
 const Feed = lazy(() => import("../views/feed/Feed"));
 const Email = lazy(() => import("../views/email/Email"));
 const AddPost = lazy(() => import("../views/addpost/AddPost"));
-const ViewPost1 = lazy(() => import("../views/feed/ViewPost"));
 const FirstDashboard = lazy(() => import("../views/dashboards/Dashboard"));
 
 const FullLayout = (props) => {

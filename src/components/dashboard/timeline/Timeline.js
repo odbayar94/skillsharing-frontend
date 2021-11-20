@@ -1,11 +1,4 @@
 import React from 'react';
-import {
-    Row,
-    Col,
-    Card,
-    CardBody,
-   
-} from 'reactstrap';
 
 import img8 from '../../../assets/images/users/4.jpg';
 

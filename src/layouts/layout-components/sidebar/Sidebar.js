@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import {
   Nav,
-  Collapse,
 } from "reactstrap";
 import PerfectScrollbar from "react-perfect-scrollbar";
 
@@ -11,18 +10,6 @@ const Sidebar = (props) => {
   const activeRoute = (routeName) => {
     return props.location.pathname.indexOf(routeName) > -1 ? "selected" : "";
   };
-  const [state, setState] = useState({
-    authentication: activeRoute("/authentication") !== "" ? true : false,
-    uicomponents: activeRoute("/ui-components") !== "" ? true : false,
-    samplepages: activeRoute("/sample-pages") !== "" ? true : false,
-    dashboardpages: activeRoute("/dashboards") !== "" ? true : false,
-    iconsPages: activeRoute("/icons") !== "" ? true : false,
-    formlayoutPages: activeRoute("/form-layouts") !== "" ? true : false,
-    formpickerPages: activeRoute("/form-pickers") !== "" ? true : false,
-  });
-  const [cstate, csetState] = useState({
-    extrapages: activeRoute("/sample-pages/extra-pages") !== "" ? true : false,
-  });
   
   /*--------------------------------------------------------------------------------*/
   /*To Expand SITE_LOGO With Sidebar-Menu on Hover                                  */
