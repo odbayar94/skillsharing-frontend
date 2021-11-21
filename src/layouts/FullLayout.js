@@ -2,9 +2,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { lazy } from "react";
 import { Route, Switch} from "react-router-dom";
 import Header from "./layout-components/header/Header";
-import Sidebar from "./layout-components/sidebar/Sidebar";
 import Footer from "./layout-components/footer/Footer";
-import ThemeRoutes from "../routes/Router";
 import Spinner from "./../views/spinner/Spinner";
 import Cookies from "js-cookie";
 import ViewPost from "../views/feed/ViewPost";
@@ -46,21 +44,22 @@ const data = true;
       data-boxed-layout="full"
     >
       <Header {...props} />
-      
+
       <div className="page-wrapper d-block">
         <div className="page-content container-fluid">
           <Suspense fallback={<Spinner />}>
             <Switch>
               <Route path="/" exact={data} component={Feed} key="1" />
               <Route path="/post/:id" component={ViewPost} key="2" />
-              <Route
-                path="/dashboard"
-                exact={data}
-                component={FirstDashboard}
-                key="3"
-              />
+
               {token && (
                 <>
+                  <Route
+                    path="/dashboard"
+                    exact={data}
+                    component={FirstDashboard}
+                    key="3"
+                  />
                   <Route path="/posts" exact={data} component={Email} key="4" />
                   <Route
                     path="/add-post"

@@ -19,8 +19,56 @@ import {
   GET_ALL_POSTS_START,
   GET_ALL_POSTS_SUCCESS,
   GET_ALL_POSTS_ERROR,
+  APPROVED_POSTS_START,
+  APPROVED_POSTS_SUCCESS,
+  APPROVED_POSTS_ERROR,
 } from "../constants";
+export const approvePost = (id) =>async (dispatch) => {
+  const token = Cookies.get("token");
+  dispatch(approvePostStart());
+  axios
+    .put(REST_API_URL + `/posts/${id}/publish`, {}, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((result) => {
+      dispatch(approvePostSuccess(result.data.data));
+    })
+    .catch((err) => {
+      if (!err.response) {
+        const error = {
+          response: {
+            data: {
+              error: {
+                message: "Сервертэй холбогдоход алдаа гарлаа",
+              },
+            },
+          },
+        };
 
+        dispatch(approvePostError(error));
+      } else {
+        dispatch(approvePostError(err));
+      }
+    });
+}
+const approvePostStart= ()=>{
+return {
+  type: APPROVED_POSTS_START,
+};
+}
+const approvePostSuccess = (data) => {
+  return {
+    type: APPROVED_POSTS_SUCCESS,
+  };
+};
+const approvePostError = (error) => {
+  return {
+    type: APPROVED_POSTS_ERROR,
+  };
+
+};
 export const getApprovedPosts = () => async (dispatch) => {
   dispatch(getApprovedPostsStart());
   axios

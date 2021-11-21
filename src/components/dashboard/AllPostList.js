@@ -20,19 +20,16 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./custom.css";
 
-import {getAllPosts} from "../../redux/post/Action";
+import {getAllPosts, approvePost} from "../../redux/post/Action";
 
 const AllPostList = (props) => {
+  const approve = (id)=>{
+    console.log("postId: " + id);
+    dispatch(approvePost(id));
+    setModal(!modal);
+  }
     const handleSubmit = (event) => {
       event.preventDefault();
-      let id = event.target.id.value;
-      let name = event.target.name.value;
-      let designation = event.target.designation.value;
-      let location = event.target.location.value;
-      let age = event.target.age.value;
-    //   let newObj = JSON.parse(JSON.stringify(jsonData));
-    //   newObj[id] = [name, designation, location, age];
-    //   setJsonData(newObj);
       setModal(!modal);
     };
       const toggle = () => {
@@ -40,13 +37,6 @@ const AllPostList = (props) => {
       };
     const [modal, setModal] = useState(false);
     const [obj, setObj] = useState({});
-  const [reloadList, setReloadList] = useState(false);
-  const [payModal, setPayModal] = useState(false);
-  const [dataId, setDataId] = useState("");
-  const [customerName, setCustomerName] = useState("");
-  const [pageNumber, setPageNumber] = useState(0);
-  const [customerRd, setCustomerRd] = useState("");
-  const [searchValue, setSearchValue] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -62,6 +52,7 @@ const AllPostList = (props) => {
       
     return {
       id: key,
+      postId: prop._id,
       title: prop.title,
       userId: prop.userId,
       createdAt: prop.createdAt,
@@ -95,58 +86,46 @@ const AllPostList = (props) => {
       <Modal isOpen={modal} toggle={toggle.bind(null)}>
         <ModalHeader toggle={toggle.bind(null)}>Бичвэр</ModalHeader>
         <ModalBody>
-          <Form onSubmit={(event) => handleSubmit(event)}>
-            <Input type="hidden" name="id" id="id" defaultValue={obj.id} />
-            <FormGroup>
-              <Label for="name">Хэрэглэгч</Label>
-              <Input
-                type="text"
-                name="name"
-                id="name"
-                disabled={true}
-                defaultValue={obj.userId}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="designation">Гарчиг</Label>
-              <Input
-                type="text"
-                disabled={true}
-                name="designation"
-                id="designation"
-                defaultValue={obj.title}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="location">Огноо</Label>
-              <Input
-                type="text"
-                name="location"
-                disabled={true}
-                id="location"
-                defaultValue={obj.createdAt}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="age">Бичлэг</Label>
-              <div
-                className="post__description"
-                dangerouslySetInnerHTML={{ __html: obj.context }}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Button color="primary" type="submit">
-                Батлах
-              </Button>
-              <Button
-                color="secondary"
-                className="ml-1"
-                onClick={toggle.bind(null)}
-              >
-                Хаах
-              </Button>
-            </FormGroup>
-          </Form>
+          <Label for="name">Хэрэглэгч</Label>
+          <Input
+            type="text"
+            name="name"
+            id="name"
+            disabled={true}
+            defaultValue={obj.userId}
+          />
+          <Label for="designation">Гарчиг</Label>
+          <Input
+            type="text"
+            disabled={true}
+            name="designation"
+            id="designation"
+            defaultValue={obj.title}
+          />
+          <Label for="location">Огноо</Label>
+          <Input
+            type="text"
+            name="location"
+            disabled={true}
+            id="location"
+            defaultValue={obj.createdAt}
+          />
+          <Label for="age">Бичлэг</Label>
+          <div
+            className="post__description"
+            dangerouslySetInnerHTML={{ __html: obj.context }}
+          />
+          <Button color="primary" onClick={()=>{approve(obj.postId)}}>
+            Батлах
+          </Button>
+          <Button
+            color="secondary"
+            className="ml-1"
+            onClick={toggle.bind(null)}
+          >
+            Хаах
+          </Button>
+          
         </ModalBody>
       </Modal>
       <ToastContainer />
@@ -155,7 +134,7 @@ const AllPostList = (props) => {
       ) : (
         <Card>
           <CardTitle className="mb-0 p-3 border-bottom bg-light">
-            <i className="mdi mdi-border-right mr-2"></i>Нийт бичвэр
+            Нийт бичвэр
           </CardTitle>
           <CardBody>
             <ReactTable

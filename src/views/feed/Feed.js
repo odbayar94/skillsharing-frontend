@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getApprovedPosts } from "../../redux/post/Action";
-import { Row, Col, Card, CardBody } from "reactstrap";
+import { Row, Col, Card, CardBody} from "reactstrap";
+import Spinner from "../../views/spinner/Spinner";
 import {
   TimeLine,
 } from "../../components/dashboard/index.js";
-require("dotenv").config();
-
-
 
 const FirstDashboard = () => {
+  console.log("rest: "+ process.env.REST_API_URI);
   const posts = useSelector((state) => state.postReducer.getApprovedPosts);
    const dispatch = useDispatch();
   useEffect(() => {
@@ -17,34 +16,36 @@ const FirstDashboard = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>{process.env.REST_API_URI}</h1>
-      <h1>Мэдлэгийн сан</h1>
-      <Row>
-        <Col md="12" xl="12" className="col-xlg-12">
-          <Card>
-            <CardBody>
-              <Row>
-                <Col sm="12">
-                  <div className="profiletimeline">
-                    {posts.data.map((post) => (
-                      <TimeLine
-                        key={post._id}
-                        id={post._id}
-                        context={post.context}
-                        claps={post.clapsNumber}
-                        date={post.createdAt}
-                        title={post.title}
-                      />
-                    ))}
-                  </div>
-                </Col>
-              </Row>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+    <>
+      {posts.loading ? (<Spinner />): 
+      (<div>
+        <h1>Мэдлэгийн сан</h1>
+        <Row>
+          <Col md="12" xl="12" className="col-xlg-12">
+            <Card>
+              <CardBody>
+                <Row>
+                  <Col sm="12">
+                    <div className="profiletimeline">
+                      {posts.data.map((post) => (
+                        <TimeLine
+                          key={post._id}
+                          id={post._id}
+                          context={post.context}
+                          claps={post.clapsNumber}
+                          date={post.createdAt}
+                          title={post.title}
+                        />
+                      ))}
+                    </div>
+                  </Col>
+                </Row>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </div>)}
+    </>
   );
 };
 

@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 import { logOut } from "../../../redux/user/Action";
 import {
   Nav,
-  NavItem,
-  NavLink,
   Button,
   Navbar,
   NavbarBrand,
@@ -19,10 +17,7 @@ import {
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
 /*--------------------------------------------------------------------------------*/
-import logodarkicon from "../../../assets/images/logo-icon.png";
-import logolighticon from "../../../assets/images/logo-light-icon.png";
 import logolighttext from "../../../assets/images/logo-text.png";
-import logolighttext1 from "../../../assets/images/logo-light-text.png";
 import profilephoto from "../../../assets/images/users/1.jpg";
 import Cookies from "js-cookie";
 
@@ -34,24 +29,6 @@ const Header = (props) => {
 
   const [isOpen, setIsOpen] = useState(true);
 
-  const showMobilemenu = () => {
-    document.getElementById("main-wrapper").classList.toggle("show-sidebar");
-  };
-  
-    const activeRoute = (routeName) => {
-      return props.location.pathname.indexOf(routeName) > -1 ? "selected" : "";
-    };
-
-  const sidebarHandler = () => {
-    let element = document.getElementById("main-wrapper");
-    element.classList.toggle("mini-sidebar");
-    if (element.classList.contains("mini-sidebar")) {
-      element.setAttribute("data-sidebartype", "mini-sidebar");
-    } else {
-      element.setAttribute("data-sidebartype", "full");
-    }
-    
-  };
   const systemLogOut = ()=>{
     dispatch(logOut());
     props.history.push("/");

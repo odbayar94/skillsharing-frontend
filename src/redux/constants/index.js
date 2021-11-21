@@ -1,6 +1,8 @@
 //System constant
-export const REST_API_URL = "https://leap4.retoch.mn/api/v1";
+// require("dotenv").config();
+// export const REST_API_URL = process.env.REST_API_URI;
 // export const REST_API_URL = "http://localhost:5001/api/v1";
+export const REST_API_URL = "https://leap4.retoch.mn/api/v1";
 
 // SETTINGS CONSTANTS
 export const LOGO_BG = "LOGO_BG";
@@ -104,3 +106,8 @@ export const DASHBOARD_SUCCESS = "DASHBOARD_SUCCESS";
 export const GET_ALL_POSTS_START ="GET_ALL_POSTS_START";
 export const GET_ALL_POSTS_SUCCESS = "GET_ALL_POSTS_SUCCESS";
 export const GET_ALL_POSTS_ERROR = "GET_ALL_POSTS_ERROR";
+
+//Approve post
+export const APPROVED_POSTS_START ="APPROVED_POSTS_START";
+export const APPROVED_POSTS_SUCCESS="APPROVED_POSTS_SUCCESS";
+export const APPROVED_POSTS_ERROR = "APPROVED_POSTS_ERROR";
