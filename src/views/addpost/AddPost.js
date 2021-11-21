@@ -5,10 +5,12 @@ import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { useDispatch } from "react-redux";
 import { sendPost} from "../../redux/post/Action";
+import { browserHistory } from "react-router";
+
 import "./AddPost.css";
 
 
-function AddPost() {
+function AddPost(props) {
     const dispatch = useDispatch();
   const [userInfo, setuserInfo] = useState({
     title: "",
@@ -27,16 +29,16 @@ function AddPost() {
   };
 
   const addDetails = (event) => {
-    
-      event.preventDefault();
-      event.persist();
-       dispatch(
-         sendPost({
-           title: userInfo.title,
-           context: userInfo.context.value,
-         })
-       );
-     
+    event.preventDefault();
+    event.persist();
+    dispatch(
+      sendPost({
+        title: userInfo.title,
+        context: userInfo.context.value,
+      })
+    );
+    //do something...
+    props.history.push("/posts");
   };
 
   return (
