@@ -1,6 +1,6 @@
 //System constant
-// export const REST_API_URL = "https://leap4.retoch.mn/api/v1";
-export const REST_API_URL = "http://localhost:5001/api/v1";
+export const REST_API_URL = "https://leap4.retoch.mn/api/v1";
+// export const REST_API_URL = "http://localhost:5001/api/v1";
 
 // SETTINGS CONSTANTS
 export const LOGO_BG = "LOGO_BG";
