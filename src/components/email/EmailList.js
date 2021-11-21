@@ -21,6 +21,7 @@ const EmailList = ({ showRightPart }) => {
 
 
   return (
+    
     <ul className="list-group listing-email-over">
       {posts.data.map((email) => (
         <Email

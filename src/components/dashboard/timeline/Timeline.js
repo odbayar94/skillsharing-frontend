@@ -1,6 +1,6 @@
 import React from 'react';
 
-import img8 from '../../../assets/images/users/4.jpg';
+import defaultpro from '../../../assets/images/users/1.jpg';
 
 const TimeLine = ({date, title, context, comments, claps,id}) => {
 const link = "/post/" + id
@@ -8,7 +8,12 @@ const link = "/post/" + id
       <div className="feed-post">
         <div className="d-flex">
           <div>
-            <img src={img8} alt="user" className="rounded-circle" width="40" />
+            <img
+              src={defaultpro}
+              alt="user"
+              className="rounded-circle"
+              width="40"
+            />
           </div>
           <div className="ml-3">
             <div>

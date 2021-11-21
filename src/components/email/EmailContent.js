@@ -41,8 +41,7 @@ const EmailContent = () => {
     </div>
   ) : (
     <div className="d-flex h-100 p-4 flex-column align-items-center justify-content-center">
-      <i className="far fa-envelope display-5"></i>
-      <h4 className="mt-2">Please select an email to show details.</h4>
+      <h4 className="mt-2">Бичвэрээ сонгоно уу</h4>
     </div>
   );
 };

@@ -21,8 +21,8 @@ import {
 /*--------------------------------------------------------------------------------*/
 import logodarkicon from "../../../assets/images/logo-icon.png";
 import logolighticon from "../../../assets/images/logo-light-icon.png";
-import logodarktext from "../../../assets/images/logo-text.png";
-import logolighttext from "../../../assets/images/logo-light-text.png";
+import logolighttext from "../../../assets/images/logo-text.png";
+import logolighttext1 from "../../../assets/images/logo-light-text.png";
 import profilephoto from "../../../assets/images/users/1.jpg";
 import Cookies from "js-cookie";
 
@@ -63,7 +63,6 @@ const Header = (props) => {
         <div className="navbar-header" id="logobg" data-logobg="skin4">
           <NavbarBrand href="/">
             <span className="logo-text">
-              <img src={logodarktext} alt="homepage" className="dark-logo" />
               <img src={logolighttext} className="light-logo" alt="homepage" />
             </span>
           </NavbarBrand>

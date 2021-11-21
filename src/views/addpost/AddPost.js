@@ -48,7 +48,7 @@ function AddPost() {
             <form onSubmit={addDetails} className="update__forms">
               <div className="form-row">
                 <div className="form-group col-md-12">
-                  <label className="font-weight-bold">
+                  <label className="font-weight-normal">
                     {" "}
                     Гарчиг <span className="required"> * </span>{" "}
                   </label>
@@ -63,7 +63,7 @@ function AddPost() {
                   />
                 </div>
                 <div className="form-group col-md-12 editor">
-                  <label className="font-weight-bold">
+                  <label className="font-weight-normal">
                     {" "}
                     Бичвэр <span className="required"> * </span>{" "}
                   </label>

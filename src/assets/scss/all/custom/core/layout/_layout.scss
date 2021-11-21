@@ -10,14 +10,13 @@
 }
 
 .page-wrapper {
-  background: $body-bg;
   position: relative;
   transition: 0.2s ease-in;
   display: none;
 }
 
 .page-wrapper > .page-content {
-  padding: 30px;
+  padding: 15px;
   min-height: calc(100vh - 116px);
 }
 .page-breadcrumb {
@@ -68,12 +67,12 @@
   border-right: 1px solid $border-color;
 
   .listing-over {
-    height: calc(100vh - 258px);
+    height: calc(100vh - 235px);
     overflow: auto;
   }
 
   .listing-email-over {
-    height: calc(100vh - 294px);
+    height: calc(100vh - 235px);
     overflow: auto;
   }
 }
@@ -399,7 +398,6 @@
   }
   .left-part {
     left: -$left-part-width;
-    background: $body-bg;
     z-index: 1;
     top: $topbar-height;
     height: calc(100vh - 66px);
@@ -426,6 +424,6 @@
 
 @media (min-width: 1024px) {
   #main-wrapper[data-layout="vertical"][data-sidebartype="full"] .page-wrapper {
-    margin-left: 240px;
+    margin: 0 100px;
   }
 }

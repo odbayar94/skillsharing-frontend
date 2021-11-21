@@ -110,10 +110,9 @@ input[type="text"] {
   font-size: 15px;
   background: #f0f5f7;
   width: 100% !important;
-  color: #696969;
+  color: #080808;
   transition: all 0.3s ease-in-out 0s;
   box-shadow: none;
-  height: 60px;
 }
 input,
 button,
@@ -128,7 +127,7 @@ label {
   font-size: 17px;
   color: #202124;
   font-weight: 500;
-  margin: 27px 0 10px;
+  margin: 0 0 10px;
   display: block;
 }
 .btn {
@@ -198,8 +197,7 @@ span.required {
   color: #f44336;
 }
 form.update__forms {
-  border: 1px solid #1967d2;
-  padding: 37px;
+  padding: 25px;
 }
 .errors {
   color: #f44336;
@@ -213,4 +211,15 @@ form.update__forms {
   padding: 14px 37px 14px 37px;
   font-size: 20px;
   line-height: normal;
+}
+
+.add__form {
+  box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+  -o-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+}
+
+.public-DraftStyleDefault-block {
+  margin: 0;
 }

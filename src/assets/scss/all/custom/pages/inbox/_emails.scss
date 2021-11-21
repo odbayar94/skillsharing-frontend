@@ -1,5 +1,6 @@
 .app-drawer {
   position: relative;
+  @extend %card-shadow;
 
   .list-group {
     .list-group-item {

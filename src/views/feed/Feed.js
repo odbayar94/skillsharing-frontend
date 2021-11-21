@@ -19,7 +19,7 @@ const FirstDashboard = () => {
   return (
     <div>
       <h1>{process.env.REST_API_URI}</h1>
-      <h1>Hello</h1>
+      <h1>Мэдлэгийн сан</h1>
       <Row>
         <Col md="12" xl="12" className="col-xlg-12">
           <Card>
@@ -37,12 +37,6 @@ const FirstDashboard = () => {
                         title={post.title}
                       />
                     ))}
-                    {/* <TimeLine
-                      context={context}
-                      claps={clapsNumber}
-                      date={createdAt}
-                      title={title}
-                    /> */}
                   </div>
                 </Col>
               </Row>

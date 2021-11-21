@@ -13,10 +13,12 @@ const Email = () => {
   return (
     <Fragment>
       <div className="app-drawer">
-        <div className="right-part bg-white app-drawer-content">
+        <div className="bg-white app-drawer-content">
           <div className="right-left-part">
             <EmailSidebar />
+            <div>
             <EmailLists showRightPart={showRightPart.bind(null)} />
+            </div>
           </div>
           <div
             className={

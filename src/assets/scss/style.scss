@@ -22,6 +22,8 @@ File: scss
  *  14. Component
  */
 @import "all/custom/variables";
+@import "all/custom/viewpost";
+
 // Import Bootstrap source files (Required file)
 @import "all/bootstrap/bootstrap";
 @import "all/custom/custom";
