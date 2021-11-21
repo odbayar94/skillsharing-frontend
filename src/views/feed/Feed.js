@@ -17,8 +17,7 @@ const FirstDashboard = () => {
 
   return (
     <>
-      {posts.loading ? (<Spinner />): 
-      (<div>
+      <div>
         <h1>Мэдлэгийн сан</h1>
         <Row>
           <Col md="12" xl="12" className="col-xlg-12">
@@ -44,7 +43,7 @@ const FirstDashboard = () => {
             </Card>
           </Col>
         </Row>
-      </div>)}
+      </div>
     </>
   );
 };

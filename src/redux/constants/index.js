@@ -111,3 +111,15 @@ export const GET_ALL_POSTS_ERROR = "GET_ALL_POSTS_ERROR";
 export const APPROVED_POSTS_START ="APPROVED_POSTS_START";
 export const APPROVED_POSTS_SUCCESS="APPROVED_POSTS_SUCCESS";
 export const APPROVED_POSTS_ERROR = "APPROVED_POSTS_ERROR";
+
+
+//Pagination
+export const datatableTranslations = {
+  previousText: "Өмнөх",
+  nextText: "Дараах",
+  loadingText: "Унших байна...",
+  noDataText: "Өгөгдөл олдсонгүй",
+  pageText: "Хуудас",
+  ofText: "/",
+  rowsText: "",
+};

@@ -27,7 +27,7 @@ const link = "/post/" + id
               />
             </div>
             <div className="like-comm m-t-20">
-              <i className="fa fa-heart text-danger" /> {claps} claps
+              <i className="fa fa-heart text-danger" /> {claps} таалагдсан
               <a href={link} className="link text-success">
                 {" "}
                 цааш унших

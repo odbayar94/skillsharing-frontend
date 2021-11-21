@@ -89,7 +89,7 @@ const Header = (props) => {
                     <DropdownItem divider />
                     <DropdownItem href="/dashboard">
                       <i className="fas fa-th mr-1 ml-1" />
-                      Dashboard
+                      Хяналтын самбар
                     </DropdownItem>
                     <DropdownItem href="/add-post">
                       <i className="fas fa-pencil-alt mr-1 ml-1" />

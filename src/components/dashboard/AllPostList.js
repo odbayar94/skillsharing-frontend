@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../../views/spinner/Spinner";
+import ViewSinglePost from "../../components/post/ViewSinglePost";
+import { datatableTranslations } from "../../redux/constants";
 import {
   Card,
   CardBody,
@@ -9,10 +11,6 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-  Form,
-  FormGroup,
-  Label,
-  Input,
 } from "reactstrap";
 import ReactTable from "react-table-v6";
 import "react-table-v6/react-table.css";
@@ -24,18 +22,16 @@ import {getAllPosts, approvePost} from "../../redux/post/Action";
 
 const AllPostList = (props) => {
   const approve = (id)=>{
-    console.log("postId: " + id);
+    
     dispatch(approvePost(id));
     setModal(!modal);
+    setReload(!reload);
   }
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      setModal(!modal);
-    };
       const toggle = () => {
         setModal(!modal);
       };
     const [modal, setModal] = useState(false);
+    const [reload, setReload] = useState(false);
     const [obj, setObj] = useState({});
 
   const dispatch = useDispatch();
@@ -45,7 +41,7 @@ const AllPostList = (props) => {
 
   useEffect(() => {
     dispatch(getAllPosts());
-  }, [dispatch]);
+  }, [dispatch, reload]);
 
  
   const data2 = posts.data.map((prop, key) => {
@@ -86,46 +82,29 @@ const AllPostList = (props) => {
       <Modal isOpen={modal} toggle={toggle.bind(null)}>
         <ModalHeader toggle={toggle.bind(null)}>Бичвэр</ModalHeader>
         <ModalBody>
-          <Label for="name">Хэрэглэгч</Label>
-          <Input
-            type="text"
-            name="name"
-            id="name"
-            disabled={true}
-            defaultValue={obj.userId}
+          <ViewSinglePost
+            title={obj.title}
+            context={obj.context}
+            createdAt={obj.createdAt}
+            clapsNumber={obj.clapsNumber}
           />
-          <Label for="designation">Гарчиг</Label>
-          <Input
-            type="text"
-            disabled={true}
-            name="designation"
-            id="designation"
-            defaultValue={obj.title}
-          />
-          <Label for="location">Огноо</Label>
-          <Input
-            type="text"
-            name="location"
-            disabled={true}
-            id="location"
-            defaultValue={obj.createdAt}
-          />
-          <Label for="age">Бичлэг</Label>
-          <div
-            className="post__description"
-            dangerouslySetInnerHTML={{ __html: obj.context }}
-          />
-          <Button color="primary" onClick={()=>{approve(obj.postId)}}>
-            Батлах
-          </Button>
-          <Button
-            color="secondary"
-            className="ml-1"
-            onClick={toggle.bind(null)}
-          >
-            Хаах
-          </Button>
-          
+          <div className="view_single_post-divider text-right">
+            <Button
+              color="success"
+              onClick={() => {
+                approve(obj.postId);
+              }}
+            >
+              Батлах
+            </Button>
+            <Button
+              color="secondary"
+              className="ml-1"
+              onClick={toggle.bind(null)}
+            >
+              Хаах
+            </Button>
+          </div>
         </ModalBody>
       </Modal>
       <ToastContainer />
@@ -138,6 +117,7 @@ const AllPostList = (props) => {
           </CardTitle>
           <CardBody>
             <ReactTable
+              {...datatableTranslations}
               columns={[
                 {
                   Header: "Гарчиг",
@@ -156,7 +136,7 @@ const AllPostList = (props) => {
                   accessor: "status",
                 },
                 {
-                  Header: "Actions",
+                  Header: "Үйлдэл",
                   accessor: "actions",
                   sortable: false,
                   filterable: false,
@@ -170,40 +150,6 @@ const AllPostList = (props) => {
             />
           </CardBody>
         </Card>
-        // <Card>
-        //   <CardTitle className="mb-0 p-3 border-bottom bg-light">
-        //     <i className="mdi mdi-account-multiple mr-2"></i>Ний оруулсан бичвэр
-        //   </CardTitle>
-        //   <CardBody>
-
-        //     <ReactTable
-        //       columns={columns}
-        //       defaultPageSize={10}
-        //       showPaginationBottom={false}
-        //       className="-striped -highlight"
-        //       data={posts.data}
-        //     />
-        //     <div className="paginationCustom">
-        //       <div className="previousCustom">
-        //         <button className="btnCustom" onClick={gotoPrevious}>
-        //           Өмнөх
-        //         </button>
-        //       </div>
-        //       <div className="centerCustom">
-        //         <span className="pageInfoCustom">
-        //           Хуудас: {pageNumber + 1}/
-        //         </span>
-        //         <span className="pageInfoCustom">Нийт:</span>
-        //       </div>
-
-        //       <div className="nextCustom">
-        //         <button className="btnCustom" onClick={gotoNext}>
-        //           Дараах
-        //         </button>
-        //       </div>
-        //     </div>
-        //   </CardBody>
-        // </Card>
       )}
     </div>
   );
