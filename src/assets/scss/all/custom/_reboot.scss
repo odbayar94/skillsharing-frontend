@@ -115,3 +115,10 @@ ul.list-style-none {
     background-color: $gray-100;
   }
 }
+
+img {
+  max-width: 400px;
+  max-height: 400px;
+  text-align: center;
+  object-fit: cover;
+}
