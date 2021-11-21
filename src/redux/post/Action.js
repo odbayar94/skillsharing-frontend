@@ -1,6 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-
+import { toast } from "react-toastify";
 
 import {
   REST_API_URL,
@@ -209,6 +209,7 @@ const sendPostStart = () => {
 }
 
 const sendPostSuccess = (id) => {
+  toast.success("Бичвэр амжилттай хадгалагдлаа");
   return {
     type: SEND_POST_SUCCESS,
     id

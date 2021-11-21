@@ -3,6 +3,7 @@ import { Row, Col } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getDashboard } from "../../redux/dashboard/Action";
 import AllPostList from "../../components/dashboard/AllPostList"
+import { ToastContainer} from "react-toastify";
 
 import {
   CardBandwidth,
@@ -19,6 +20,7 @@ const FirstDashboard = () => {
 
   return (
     <div>
+      <ToastContainer/>
       <Row>
         <Col lg="6" md="12">
           <CardBandwidth salary={dashboard.salary} month={dashboard.month} />

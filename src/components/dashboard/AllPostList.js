@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../../views/spinner/Spinner";
 import ViewSinglePost from "../../components/post/ViewSinglePost";
 import { datatableTranslations } from "../../redux/constants";
+import { toast } from "react-toastify";
 import {
   Card,
   CardBody,
@@ -26,6 +27,7 @@ const AllPostList = (props) => {
     dispatch(approvePost(id));
     setModal(!modal);
     setReload(!reload);
+     toast.success(`Бичвэр амжилттай нийтлэгдлээ`);
   }
       const toggle = () => {
         setModal(!modal);

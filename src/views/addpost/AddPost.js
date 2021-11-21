@@ -5,8 +5,7 @@ import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { useDispatch } from "react-redux";
 import { sendPost} from "../../redux/post/Action";
-import { browserHistory } from "react-router";
-
+import { ToastContainer, toast } from "react-toastify";
 import "./AddPost.css";
 
 
@@ -37,12 +36,13 @@ function AddPost(props) {
         context: userInfo.context.value,
       })
     );
-    //do something...
+    
     props.history.push("/posts");
   };
 
   return (
     <>
+      <ToastContainer />
       <div className="App">
         <div className="container">
           <h2>Бичвэр оруулах</h2>
