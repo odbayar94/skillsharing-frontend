@@ -15,6 +15,7 @@ import {
   DropdownItem,
 } from "reactstrap";
 
+
 /*--------------------------------------------------------------------------------*/
 /* Import images which are need for the HEADER                                    */
 /*--------------------------------------------------------------------------------*/
@@ -31,15 +32,15 @@ const Header = (props) => {
   const userData =  JSON.parse(localStorage.getItem("userdata"));
   const dispatch = useDispatch();
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const [isOpen, setIsOpen] = useState(true);
 
   const showMobilemenu = () => {
     document.getElementById("main-wrapper").classList.toggle("show-sidebar");
   };
+  
+    const activeRoute = (routeName) => {
+      return props.location.pathname.indexOf(routeName) > -1 ? "selected" : "";
+    };
 
   const sidebarHandler = () => {
     let element = document.getElementById("main-wrapper");
@@ -60,23 +61,7 @@ const Header = (props) => {
     <header className="topbar navbarbg" data-navbarbg="skin4">
       <Navbar className="top-navbar navbar-light" expand="md">
         <div className="navbar-header" id="logobg" data-logobg="skin4">
-          {/*--------------------------------------------------------------------------------*/}
-          {/* Mobile View Toggler  [visible only after 768px screen]                         */}
-          {/*--------------------------------------------------------------------------------*/}
-          <span
-            className="nav-toggler d-block d-md-none"
-            onClick={showMobilemenu.bind(null)}
-          >
-            <i className="ti-menu ti-close" />
-          </span>
-          {/*--------------------------------------------------------------------------------*/}
-          {/* Logos Or Icon will be goes here for Light Layout && Dark Layout                */}
-          {/*--------------------------------------------------------------------------------*/}
           <NavbarBrand href="/">
-            <b className="logo-icon">
-              <img src={logodarkicon} alt="homepage" className="dark-logo" />
-              <img src={logolighticon} alt="homepage" className="light-logo" />
-            </b>
             <span className="logo-text">
               <img src={logodarktext} alt="homepage" className="dark-logo" />
               <img src={logolighttext} className="light-logo" alt="homepage" />
@@ -85,12 +70,6 @@ const Header = (props) => {
           {/*--------------------------------------------------------------------------------*/}
           {/* Mobile View Toggler  [visible only after 768px screen]                         */}
           {/*--------------------------------------------------------------------------------*/}
-          <span
-            className="topbartoggler d-block d-md-none"
-            onClick={toggle.bind(null)}
-          >
-            <i className="ti-more" />
-          </span>
         </div>
         <Collapse
           className="navbarbg"
@@ -98,17 +77,6 @@ const Header = (props) => {
           navbar
           data-navbarbg="skin4"
         >
-          <Nav className="float-left" navbar>
-            <NavItem>
-              <NavLink
-                href="#"
-                className="d-none d-md-block"
-                onClick={sidebarHandler.bind(null)}
-              >
-                <i className="mdi mdi-menu" />
-              </NavLink>
-            </NavItem>
-          </Nav>
           <Nav className="ml-auto float-right" navbar>
             <UncontrolledDropdown nav inNavbar>
               {token ? (
@@ -143,13 +111,21 @@ const Header = (props) => {
                     </div>
 
                     <DropdownItem divider />
-                    <Button
-                      color="danger"
-                      className="btn-rounded ml-3 mb-2 mt-2"
-                      onClick={systemLogOut}
-                    >
-                      <i className="fa fa-power-off mr-1 ml-1" /> Logout
-                    </Button>
+                    <DropdownItem href="/dashboard">
+                      <i className="fas fa-th mr-1 ml-1" />
+                      Dashboard
+                    </DropdownItem>
+                    <DropdownItem href="/add-post">
+                      <i className="fas fa-pencil-alt mr-1 ml-1" />
+                      Бичвэр оруулах
+                    </DropdownItem>
+                    <DropdownItem href="/posts">
+                      <i className="far fa-folder-open mr-1 ml-1" />
+                      Миний бичвэрүүд
+                    </DropdownItem>
+                    <DropdownItem onClick={systemLogOut}>
+                      <i className="fa fa-power-off mr-1 ml-1" /> Гарах
+                    </DropdownItem>
                   </DropdownMenu>
                 </div>
               ) : (

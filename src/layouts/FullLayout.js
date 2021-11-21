@@ -46,9 +46,7 @@ const data = true;
       data-boxed-layout="full"
     >
       <Header {...props} />
-
-      {token && <Sidebar {...props} routes={ThemeRoutes} />}
-
+      
       <div className="page-wrapper d-block">
         <div className="page-content container-fluid">
           <Suspense fallback={<Spinner />}>

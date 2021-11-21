@@ -45,11 +45,6 @@ const Sidebar = (props) => {
     >
       <div className="scroll-sidebar">
         <PerfectScrollbar className="sidebar-nav">
-          {/* Profile dropdowm */}
-
-          {/*--------------------------------------------------------------------------------*/}
-          {/* Sidebar Menus will go here                                                */}
-          {/*--------------------------------------------------------------------------------*/}
           <Nav id="sidebarnav">
             <>
               <li

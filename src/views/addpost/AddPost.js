@@ -43,6 +43,7 @@ function AddPost() {
     <>
       <div className="App">
         <div className="container">
+          <h2>Бичвэр оруулах</h2>
           <div className="row">
             <form onSubmit={addDetails} className="update__forms">
               <div className="form-row">
@@ -82,7 +83,7 @@ function AddPost() {
                     )}
                   />
                 </div>
-               
+
                 <div className="form-group col-sm-12 text-right">
                   <button type="submit" className="btn btn__theme">
                     Илгээх
