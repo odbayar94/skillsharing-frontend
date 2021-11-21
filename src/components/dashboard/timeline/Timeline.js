@@ -3,7 +3,7 @@ import React from 'react';
 import img8 from '../../../assets/images/users/4.jpg';
 
 const TimeLine = ({date, title, context, comments, claps,id}) => {
-const link = "post/" + id
+const link = "/post/" + id
     return (
       <div className="feed-post">
         <div className="d-flex">
@@ -12,7 +12,7 @@ const link = "post/" + id
           </div>
           <div className="ml-3">
             <div>
-              <a href="/" className="link">
+              <a href={link} className="link">
                 {title}{" "}
               </a>
               <span className="font-12 ml-2 text-muted">{date}</span>
