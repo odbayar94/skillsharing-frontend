@@ -7,7 +7,7 @@ import {
 } from "../../components/dashboard/index.js";
 
 const FirstDashboard = () => {
-  console.log("rest: "+ process.env.REST_API_URI);
+  console.log("rest: " + process.env.REACT_APP_REST_API_URI);
   const posts = useSelector((state) => state.postReducer.getApprovedPosts);
    const dispatch = useDispatch();
   useEffect(() => {
