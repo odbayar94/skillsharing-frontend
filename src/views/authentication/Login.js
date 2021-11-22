@@ -118,7 +118,6 @@ const Login = (props) => {
               </Col>
               <Col md="6" lg="4" className="bg-white">
                 <div className="p-4">
-                  <h3 className="font-medium mb-3">Sign In to Admin</h3>
                   <Form className="mt-3" id="loginform" action="/dashbaord">
                     <Label for="email" className="font-medium">
                       Email
