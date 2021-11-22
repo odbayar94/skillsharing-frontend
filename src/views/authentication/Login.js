@@ -166,7 +166,7 @@ const Login = (props) => {
                       <CustomInput
                         type="checkbox"
                         id="exampleCustomCheckbox"
-                        label="Remember Me"
+                        label="Намайг сана"
                       />
                     </div>
                     <Row className="mb-3">
