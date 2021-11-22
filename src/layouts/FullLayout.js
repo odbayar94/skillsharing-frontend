@@ -18,7 +18,9 @@ const FullLayout = (props) => {
   const [width, setWidth] = useState(window.innerWidth);
   if (token) {
     var decodedToken = jwt_decode(token);
+    console.log(decodedToken.role === "admin");
   }
+  
   
   
   useEffect(() => {
