@@ -110,7 +110,6 @@ const Register = (props) => {
               </Col>
               <Col md="6" lg="4" className="bg-white">
                 <div className="p-4">
-                  <h3 className="font-medium mb-3">Sign Up to Admin</h3>
                   <Form className="mt-3" id="loginform" action="/dashbaord">
                     <FormGroup className="mb-3">
                       <Label for="firstname" className="font-medium">
@@ -151,7 +150,7 @@ const Register = (props) => {
                     {showErrors("firstname")}
                     <FormGroup className="mb-3">
                       <Label for="email" className="font-medium">
-                        Email
+                        И-мэйл хаяг
                       </Label>
                       <Input
                         type="email"
@@ -162,14 +161,14 @@ const Register = (props) => {
                         }}
                         name="email"
                         id="email"
-                        placeholder="Email"
+                        placeholder="Имэйл"
                         bsSize="lg"
                       />
                     </FormGroup>
                     {showErrors("email")}
                     <FormGroup className="mb-3">
                       <Label for="password" className="font-medium">
-                        Password
+                        Нууц үг
                       </Label>
                       <Input
                         type="password"
@@ -180,7 +179,7 @@ const Register = (props) => {
                         }}
                         name="password"
                         id="password"
-                        placeholder="Password"
+                        placeholder="Нууц үг"
                         bsSize="lg"
                       />
                     </FormGroup>
@@ -188,7 +187,7 @@ const Register = (props) => {
                     <CustomInput
                       type="checkbox"
                       id="exampleCustomCheckbox"
-                      label="I agree to all Terms"
+                      label="Нөхцөлийг зөвшөөрч байна"
                     />
                     <Row className="mb-3 mt-3">
                       <Col xs="12">
@@ -202,18 +201,19 @@ const Register = (props) => {
                           type="submit"
                           block
                         >
-                          Sign Up
+                          Бүртгүүлэх
                         </Button>
                       </Col>
                     </Row>
                     <div className="text-center">
-                      Already have an account?{" "}
+                      Хэрэв та бүртгүүлсэн бол{" "}
                       <a
-                        href="/authentication/login2"
+                        href="/authentication/login"
                         className="text-info ml-1"
                       >
-                        <b>Sign In</b>
+                        <b>нэвтрэх </b>
                       </a>
+                      дарна уу
                     </div>
                   </Form>
                 </div>
