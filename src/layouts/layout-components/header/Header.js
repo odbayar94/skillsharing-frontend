@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import jwt_decode from "jwt-decode";
 import { logOut } from "../../../redux/user/Action";
 import {
   Nav,
@@ -24,6 +25,9 @@ import Cookies from "js-cookie";
 const Header = (props) => {
   
   const token = Cookies.get("token");
+    if (token) {
+      var decodedToken = jwt_decode(token);
+    }
   const userData =  JSON.parse(localStorage.getItem("userdata"));
   const dispatch = useDispatch();
 
@@ -87,10 +91,15 @@ const Header = (props) => {
                     </div>
 
                     <DropdownItem divider />
-                    <DropdownItem href="/dashboard">
-                      <i className="fas fa-th mr-1 ml-1" />
-                      Хяналтын самбар
-                    </DropdownItem>
+                    {decodedToken.role === "admin" ? (
+                      <DropdownItem href="/dashboard">
+                        <i className="fas fa-th mr-1 ml-1" />
+                        Хяналтын самбар
+                      </DropdownItem>
+                    ) : (
+                      <div></div>
+                    )}
+
                     <DropdownItem href="/add-post">
                       <i className="fas fa-pencil-alt mr-1 ml-1" />
                       Бичвэр оруулах

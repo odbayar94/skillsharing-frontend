@@ -2,7 +2,9 @@
 // require("dotenv").config();
 // export const REST_API_URL = process.env.REST_API_URI;
 // export const REST_API_URL = "http://localhost:5001/api/v1";
-export const REST_API_URL = "https://leap4.retoch.mn/api/v1";
+
+require("dotenv").config();
+export const REST_API_URL = process.env.REACT_APP_REST_API_URI;
 
 // SETTINGS CONSTANTS
 export const LOGO_BG = "LOGO_BG";

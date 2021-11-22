@@ -15,8 +15,8 @@ import {
 } from "reactstrap";
 import validators from "./Validators";
 import img2 from "../../assets/images/big/auth-bg.jpg";
-
 import {loginUser} from "../../redux/user/Action"
+
 
 const sidebarBackground = {
   backgroundImage: "url(" + img2 + ")",
@@ -111,7 +111,9 @@ const Login = (props) => {
                     Мэдлэгийн санд тавтай морил. Та доорх нууц үгийг ашиглаж
                     системд нэвтрэх боломжтой
                   </p>
-                  <p className="mt-5">Username: demo@demo.com</p>
+                  <p className="mt-5">Admin user: admin@demo.com</p>
+                  <p className="align-items-end">Password: 123456789</p>
+                  <p className="mt-5">Normal user: demo@demo.com</p>
                   <p className="align-items-end">Password: demo123</p>
                 </div>
               </Col>

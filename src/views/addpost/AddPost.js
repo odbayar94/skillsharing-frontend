@@ -5,7 +5,7 @@ import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { useDispatch } from "react-redux";
 import { sendPost} from "../../redux/post/Action";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import "./AddPost.css";
 
 

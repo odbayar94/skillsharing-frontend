@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { lazy } from "react";
+import jwt_decode from "jwt-decode";
 import { Route, Switch} from "react-router-dom";
 import Header from "./layout-components/header/Header";
 import Footer from "./layout-components/footer/Footer";
@@ -15,7 +16,11 @@ const FirstDashboard = lazy(() => import("../views/dashboards/Dashboard"));
 const FullLayout = (props) => {
   const token = Cookies.get("token");
   const [width, setWidth] = useState(window.innerWidth);
-
+  if (token) {
+    var decodedToken = jwt_decode(token);
+  }
+  
+  
   useEffect(() => {
     const updateDimensions = () => {
       setWidth(window.innerWidth);
@@ -54,12 +59,17 @@ const data = true;
 
               {token && (
                 <>
-                  <Route
-                    path="/dashboard"
-                    exact={data}
-                    component={FirstDashboard}
-                    key="3"
-                  />
+                  {decodedToken.role === "admin" ? (
+                    <Route
+                      path="/dashboard"
+                      exact={data}
+                      component={FirstDashboard}
+                      key="3"
+                    />
+                  ) : (
+                    <div></div>
+                  )}
+
                   <Route path="/posts" exact={data} component={Email} key="4" />
                   <Route
                     path="/add-post"

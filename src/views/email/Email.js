@@ -2,7 +2,6 @@ import React, { Fragment, useState } from "react";
 import EmailLists from "../../components/email/EmailList";
 import EmailSidebar from "../../components/email/EmailSidebar";
 import EmailContent from "../../components/email/EmailContent";
-import { ToastContainer } from "react-toastify";
 
 const Email = () => {
   const [showRight, setshowRight] = useState(false);

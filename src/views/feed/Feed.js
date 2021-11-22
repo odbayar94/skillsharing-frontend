@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getApprovedPosts } from "../../redux/post/Action";
 import { Row, Col, Card, CardBody} from "reactstrap";
-import Spinner from "../../views/spinner/Spinner";
 import {
   TimeLine,
 } from "../../components/dashboard/index.js";
