@@ -96,7 +96,7 @@ const Login = (props) => {
 
   return (
     <>
-      { user.userId && <Redirect to="/" />}
+      {user.userId && <Redirect to="/" />}
       <div
         className="auth-wrapper  align-items-center d-flex"
         style={sidebarBackground}
@@ -106,11 +106,10 @@ const Login = (props) => {
             <Row className="no-gutters justify-content-center">
               <Col md="6" lg="4" className="bg-dark text-white">
                 <div className="p-4">
-                  <h2 className="display-5">
-                    Сайн байна уу,
-                  </h2>
+                  <h2 className="display-5">Сайн байна уу,</h2>
                   <p className="op-5 mt-4">
-                    Мэдлэгийн санд тавтай морил. Та доорх нууц үгийг ашиглаж системд нэвтрэх боломжтой
+                    Мэдлэгийн санд тавтай морил. Та доорх нууц үгийг ашиглаж
+                    системд нэвтрэх боломжтой
                   </p>
                   <p className="mt-5">Username: demo@demo.com</p>
                   <p className="align-items-end">Password: demo123</p>
@@ -120,7 +119,7 @@ const Login = (props) => {
                 <div className="p-4">
                   <Form className="mt-3" id="loginform" action="/dashbaord">
                     <Label for="email" className="font-medium">
-                      Email
+                      И-мэйл хаяг
                     </Label>
                     <InputGroup className="mb-2" size="lg">
                       <InputGroupAddon addonType="prepend">
@@ -137,12 +136,12 @@ const Login = (props) => {
                           setEmail(e.target.value);
                           onInputChange(e);
                         }}
-                        placeholder="Email"
+                        placeholder="И-мэйл"
                       />
                     </InputGroup>
                     {showErrors("email")}
                     <Label for="password" className="mt-3 font-medium">
-                      Password
+                      Нууц үг
                     </Label>
                     <InputGroup className="mb-3" size="lg">
                       <InputGroupAddon addonType="prepend">
@@ -159,7 +158,7 @@ const Login = (props) => {
                           setPassword(e.target.value);
                           onInputChange(e);
                         }}
-                        placeholder="Password"
+                        placeholder="Нууц үг"
                       />
                     </InputGroup>
                     {showErrors("password")}
@@ -180,18 +179,19 @@ const Login = (props) => {
                           type="submit"
                           block
                         >
-                          Log In
+                          Нэвтрэх
                         </Button>
                       </Col>
                     </Row>
                     <div className="text-center">
-                      Don&apos;t have an account?{" "}
+                      Бүртгүүлж амжаагүй бол{" "}
                       <a
                         href="/authentication/register"
                         className="text-info ml-1"
                       >
-                        <b>Sign Up</b>
+                        <b>Бүртгүүлэх</b>{" "}
                       </a>
+                      дарна уу.
                     </div>
                   </Form>
                 </div>
